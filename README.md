@@ -57,6 +57,12 @@ npm start
 - LinkedIn: [@mithicode](https://www.linkedin.com/in/mithicode/)
 - Twitter: [@LazyMithlesh](https://twitter.com/LazyMithlesh)
 
+👤 **Vaibhav Pawar**
+
+- GitHub: [@vaibhavpawarsdet](https://github.com/vaibhavpawarsdet)
+- LinkedIn: [@vaibhavpawarsdet](https://www.linkedin.com/in/vaibhavpawarsdet/)
+- Twitter: [@vaibhavpawar00](https://twitter.com/Vaibhavpawar00)
+
 ## 📝 License
 
 This project is [MIT](./LICENSE.md) licensed.
