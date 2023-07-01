@@ -1,5 +1,5 @@
 import Signup from "./pages/Signup";
-import Login from "./Login";
+import Login from "./pages/Login";
 function App() {
   return (
     <div className="App">
