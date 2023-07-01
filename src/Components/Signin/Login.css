@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     background-color: white;
+    background-image: url("https://c1.wallpaperflare.com/preview/937/818/491/stethoscope-doctor-md-medical-health-hospital.jpg");
 }
 
 .login__logo {
@@ -23,6 +24,7 @@
     border-radius: 5px;
     border: 1px solid lightgray;
     padding: 20px;
+    background-color: #add8e6;
 }
 
 .login__container > h1 {
@@ -47,7 +49,7 @@
 }
 
 .login__signInButton {
-    background: #17B169;
+    background: #5ca1e1;
     border-radius: 2px;
     width: 100%;
     height: 30px;
