@@ -16,11 +16,11 @@ export default CustomButtons;
 const CustomButtonsContainer = styled.div``;
 
 const CustomButton = styled.button`
-  padding: 10px;
+  padding: 12px;
   color: #fff;
   border-radius: 4px;
   background-color: #5ca1e1;
-  margin: 8px 15px;
+  margin: 8px;
   text-align: center;
   font-weight: bold;
   position: relative;
@@ -29,6 +29,7 @@ const CustomButton = styled.button`
   &:hover {
     padding-right: 14px;
     padding-left: 8px;
+    scale: 1.1;
   }
 
   &:after {

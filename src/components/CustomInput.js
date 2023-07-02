@@ -1,12 +1,15 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const CustomInput = ({ placeholder, type }) => {
+const CustomInput = ({ placeholder, type, onChange, value }) => {
   return (
     <InputFieldContainer>
-      <InputForm>
-        <InputField placeholder={placeholder} type={type} />
-      </InputForm>
+      <InputField
+        placeholder={placeholder}
+        type={type}
+        value={value}
+        onChange={onChange}
+      />
     </InputFieldContainer>
   );
 };
@@ -14,10 +17,6 @@ const CustomInput = ({ placeholder, type }) => {
 export default CustomInput;
 
 const InputFieldContainer = styled.div``;
-
-const InputForm = styled.form`
-  margin-top: 15px;
-`;
 
 const InputField = styled.input`
   width: 210px;

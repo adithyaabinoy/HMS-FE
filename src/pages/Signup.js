@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import CustomInput from "../components/CustomInput";
 import CustomButtons from "../components/CustomButtons";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
@@ -15,12 +16,8 @@ const Signup = () => {
         <CustomInput type="text" placeholder='UserName'/>
         <CustomInput type="text" placeholder='Email'/>
         <CustomInput type="password" placeholder='******'/>
-        <ButtonContainer>
-        <CustomButtons name='Doctor' width='100px'/>
-        <CustomButtons name='User' width='100px'/>
-        </ButtonContainer>
         <CustomButtons name='Register' width='220px'/>
-        <p>Already User? <Span>SIGN-IN</Span></p>
+        <p>Already User? <Span><Link to='/login'>SIGN-IN</Link></Span></p>
       </SignUpInnerContainer>
     </SignupContainer>
   );
@@ -44,6 +41,7 @@ const SignUpInnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 60%;
   height: 70vh;
   background-color: #ADD8E6;
@@ -68,9 +66,9 @@ const SignUpInnerContainer = styled.div`
   }
 `;
 
-const ButtonContainer = styled.div`
-   display: flex;
-`
 const Span = styled.span`
   color: blue;
+  > a {
+    text-decoration: none;
+  }
 `
