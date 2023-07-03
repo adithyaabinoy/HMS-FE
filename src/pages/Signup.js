@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../asset/logo-1.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "../redux/authReducer";
+import { toast } from 'react-toastify';
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -29,6 +30,7 @@ const Signup = () => {
         setEmail("");
         setPassword("");
         navigate("/login");
+        toast.success('Successfully created new user')
       }
     });
   }

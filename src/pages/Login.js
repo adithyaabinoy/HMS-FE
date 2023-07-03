@@ -4,8 +4,9 @@ import CustomInput from "../components/CustomInput";
 import CustomButtons from "../components/CustomButtons";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import logo from '../asset/logo-1.svg'
-import { signinUser } from '../redux/authReducer'
+import logo from "../asset/logo-1.svg";
+import { signinUser } from "../redux/authReducer";
+import { toast } from "react-toastify";
 
 const Login = () => {
   // state
@@ -15,28 +16,22 @@ const Login = () => {
   const { loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleLoginEvent = (e) => {
     e.preventDefault();
     let userCredentials = {
       email,
       password,
     };
-    dispatch(signinUser(userCredentials)).then((res) => {
-      if (res.payload) {
-        setEmail("");
-        setPassword("");
-        navigate("/");
-      }
-    });
+    dispatch(signinUser(userCredentials));
+    navigate("/");
+    toast.success("Successfully signed in");
   };
 
   return (
     <LoginContainer>
       <LoginInnerContainer>
-        <img
-          src={logo}
-          alt="logo"
-        />
+        <img src={logo} alt="logo" />
         <h1>Welcome to HMS</h1>
         <InputForm onSubmit={handleLoginEvent}>
           <CustomInput
@@ -127,4 +122,3 @@ const Span = styled.span`
 const InputForm = styled.form`
   margin-top: 15px;
 `;
-

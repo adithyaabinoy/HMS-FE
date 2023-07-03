@@ -40,7 +40,6 @@ git clone git@github.com:Mithi-code/HMS-FE.git
 
 cd HMS-FE
 ```
-
 - Install dependencies
 
 ```bash

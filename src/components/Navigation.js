@@ -4,14 +4,13 @@ import logo from "../../src/asset/logo-1.svg";
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
-
   return (
-
     <NavigationContainer>
       <NavigationInnerContainer>
         <LogoContainer>
-          <Link to='/'><img src={logo} alt="logo" /></Link>
-          
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
         </LogoContainer>
 
         <NavigationMenus>
@@ -27,7 +26,9 @@ const Navigation = () => {
 
 export default Navigation;
 
-const NavigationContainer = styled.div``;
+const NavigationContainer = styled.div`
+  border-bottom: 1px solid lightgray;
+`;
 
 const NavigationInnerContainer = styled.div`
   display: flex;
