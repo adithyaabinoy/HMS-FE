@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <FooterContainer>
         <h1>HMS</h1>
-        <p>Copyright © 2023 lazyCoder.inc</p>
+        <p> © Copyrights. All Rights Reserved to 2023 HMS.</p>
     </FooterContainer>
   )
 }

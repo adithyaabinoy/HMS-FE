@@ -19,7 +19,7 @@ const CustomButton = styled.button`
   padding: 12px;
   color: #fff;
   border-radius: 4px;
-  background-color: #5ca1e1;
+  background-color: #4361ee;
   margin: 8px;
   text-align: center;
   font-weight: bold;

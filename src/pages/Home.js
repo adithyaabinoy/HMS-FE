@@ -2,23 +2,19 @@ import React from "react";
 import { styled } from "styled-components";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import image from "../asset/home.png";
 
 const Home = () => {
   return (
     <>
       <Navigation />
       <HomeContainer>
-        <HomeInnerContainerOne></HomeInnerContainerOne>
-        <HomeInnerContainerTwo></HomeInnerContainerTwo>
-        <HomeInnerContainerThree>
-          <h1>A passion for making people better</h1>
-          <p>
-            At HMS Asia, we are determined to provide our patient with
-            excellence in healthcare services
-          </p>
-        </HomeInnerContainerThree>
-        <HomeInnerContainerFour></HomeInnerContainerFour>
-        <HomeInnerContainerFive></HomeInnerContainerFive>
+        <div>
+          <h1>Hospital Management Systems...</h1>
+          <p>Health is the condition of wisdom and the sign is cheerfulness</p>
+          <TagButton>BOOK AN APPOINTMENT</TagButton>
+        </div>
+        <img src={image} alt="img" />
       </HomeContainer>
       <Footer />
     </>
@@ -31,62 +27,71 @@ const HomeContainer = styled.div`
   width: 100%;
   height: 80vh;
   display: flex;
+  /* background-image: url(image); */
+
+  > div {
+    width: 50%;
+    margin-left: 10%;
+    > h1 {
+      font-size: 7rem;
+    }
+
+    > p {
+      margin-top: 25px;
+      font-size: 2rem;
+      width: 70%;
+    }
+  }
+  > img {
+    width: 40%;
+  }
 `;
 
-const HomeInnerContainerOne = styled.div`
-  width: 10%;
-  height: 100%;
-  background-image: url("https://w0.peakpx.com/wallpaper/942/910/HD-wallpaper-man-wearing-medical-mask-and-robe.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.9;
-`;
-
-const HomeInnerContainerTwo = styled.div`
-  width: 15%;
-  height: 100%;
-  background-image: url("https://c1.wallpaperflare.com/preview/525/529/148/baby-cute-birth-mom.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.9;
-`;
-const HomeInnerContainerThree = styled.div`
-  width: 50%;
-  height: 100%;
-  background-image: url("https://wallpapercrafter.com/th800/273376-surgery-hospital-medical-and-doctor-hd.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.9;
+const TagButton = styled.p`
+  /* width: 120px; */
+  cursor: pointer;
+  background-color: #4361ee;
   color: #fff;
-  font-weight: 900;
+  padding: 12px;
+  border-radius: 40px;
+  margin: 10% 0;
   text-align: center;
-  font-size: 1.5rem;
-  > h1 {
-    margin-top: 17rem;
-    z-index: 999;
+  font-size: 1.3rem;
+  font-weight: 900;
+  position: relative;
+  &:hover {
+    padding-right: 14px;
+    padding-left: 8px;
+    scale: 1.1;
   }
-  > p {
-    z-index: 999;
+
+  &:after {
+    content: "»";
+    position: absolute;
+    opacity: 0;
+    font-size: 30px;
+    top: 13px;
+    right: -20px;
+    transition: 0.5s;
   }
-`;
-const HomeInnerContainerFour = styled.div`
-  width: 15%;
-  height: 100%;
-  background-image: url("https://e0.pxfuel.com/wallpapers/578/919/desktop-wallpaper-doctor-female-doctor.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.9;
-`;
-const HomeInnerContainerFive = styled.div`
-  width: 10%;
-  height: 100%;
-  background-image: url("https://w0.peakpx.com/wallpaper/418/663/HD-wallpaper-man-made-medical-microscope.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.9;
+
+  &::before {
+    content: "»";
+    position: absolute;
+    opacity: 0;
+    font-size: 30px;
+    top: 13px;
+    left: -20px;
+    transition: 0.5s;
+  }
+
+  &:hover:after {
+    opacity: 1;
+    right: 10px;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    left: 10px;
+  }
 `;
