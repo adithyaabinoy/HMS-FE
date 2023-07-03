@@ -1,23 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import CustomInput from "../components/CustomInput";
 import CustomButtons from "../components/CustomButtons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../asset/logo-1.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { signupUser } from "../redux/authReducer";
 
 const Signup = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // Redux state
+  const { loading, error } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSignUpEvent = (e) => {
+    e.preventDefault();
+    let userCredentials = {
+      username,
+      email,
+      password,
+    };
+    dispatch(signupUser(userCredentials)).then((data) => {
+      if (data) {
+        setUsername('');
+        setEmail("");
+        setPassword("");
+        navigate("/login");
+      }
+    });
+  }
+
   return (
     <SignupContainer>
       <SignUpInnerContainer>
-        <img
-          src="https://cdn3d.iconscout.com/3d/premium/thumb/hospital-6101753-5023487.png"
-          alt="logo"
-        />
-        <h1>Sign up to Hospital</h1>
-        <CustomInput type="text" placeholder='UserName'/>
-        <CustomInput type="text" placeholder='Email'/>
-        <CustomInput type="password" placeholder='******'/>
-        <CustomButtons name='Register' width='220px'/>
-        <p>Already User? <Span><Link to='/login'>SIGN-IN</Link></Span></p>
+        <img src={logo} alt="logo" />
+        <h1>Sign up to HMS</h1>
+        <InputForm onSubmit={handleSignUpEvent}>
+        <CustomInput
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <CustomInput
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <CustomInput
+            type="password"
+            placeholder="******"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <CustomButtons
+            name={loading ? "loading..." : "Register"}
+            width="220px"
+            type="submit"
+          />
+          {error && <div>{error}</div>}
+        </InputForm>
+        <p>
+          Already User?{" "}
+          <Span>
+            <Link to="/login">SIGN-IN</Link>
+          </Span>
+        </p>
       </SignUpInnerContainer>
     </SignupContainer>
   );
@@ -44,20 +96,24 @@ const SignUpInnerContainer = styled.div`
   justify-content: center;
   width: 60%;
   height: 70vh;
-  background-color: #ADD8E6;
+  background-color: #add8e6;
   opacity: 0.9;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 
   > h1 {
     margin: 10px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: darkblue;
   }
 
   > img {
     width: 120px;
-    height: 100px;
-    margin: 10px;
+    height: 120px;
+    margin: 5px 10px;
+    color: blue;
+    border-radius: 50%;
+    border: 3px solid blue;
   }
 
   @media (min-width: 768px) {
@@ -71,4 +127,8 @@ const Span = styled.span`
   > a {
     text-decoration: none;
   }
-`
+`;
+
+const InputForm = styled.form`
+  margin-top: 15px;
+`;

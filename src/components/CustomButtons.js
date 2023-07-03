@@ -1,10 +1,10 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const CustomButtons = ({ name, type, width }) => {
+const CustomButtons = ({ name, type, width, onClick }) => {
   return (
     <CustomButtonsContainer>
-      <CustomButton style={{ width: width }}>
+      <CustomButton style={{ width: width }} onClick={onClick}>
         <span>{name}</span>
       </CustomButton>
     </CustomButtonsContainer>

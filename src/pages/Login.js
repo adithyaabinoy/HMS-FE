@@ -4,15 +4,15 @@ import CustomInput from "../components/CustomInput";
 import CustomButtons from "../components/CustomButtons";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser, userSelector } from "../redux/UserSlice";
+import logo from '../asset/logo-1.svg'
+import { signinUser } from '../redux/authReducer'
 
 const Login = () => {
-  // states
+  // state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // Redux state
-  const { loading, error } = useSelector((state) => userSelector);
-
+  const { loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLoginEvent = (e) => {
@@ -21,7 +21,7 @@ const Login = () => {
       email,
       password,
     };
-    dispatch(loginUser(userCredentials)).then((res) => {
+    dispatch(signinUser(userCredentials)).then((res) => {
       if (res.payload) {
         setEmail("");
         setPassword("");
@@ -34,7 +34,7 @@ const Login = () => {
     <LoginContainer>
       <LoginInnerContainer>
         <img
-          src="https://cdn3d.iconscout.com/3d/premium/thumb/hospital-6101753-5023487.png"
+          src={logo}
           alt="logo"
         />
         <h1>Welcome to HMS</h1>
@@ -60,9 +60,9 @@ const Login = () => {
         </InputForm>
 
         <p>
-          Already User?{" "}
+          Not a User?{" "}
           <Span>
-            <Link to="/signup">Sign-Up</Link>
+            <Link to="/signup">SIGN-UP</Link>
           </Span>
         </p>
       </LoginInnerContainer>
@@ -104,8 +104,11 @@ const LoginInnerContainer = styled.div`
 
   > img {
     width: 120px;
-    height: 100px;
-    margin: 10px;
+    height: 120px;
+    margin: 5px 10px;
+    color: blue;
+    border-radius: 50%;
+    border: 3px solid blue;
   }
 
   @media (min-width: 768px) {
