@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import 'react-toastify/dist/ReactToastify.css';
+import Profile from "./pages/Profile";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>
