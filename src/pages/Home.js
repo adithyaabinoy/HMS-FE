@@ -1,13 +1,10 @@
 import React from "react";
 import { styled } from "styled-components";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
 import image from "../asset/home.png";
 
 const Home = () => {
   return (
     <>
-      <Navigation />
       <HomeContainer>
         <div>
           <h1>Hospital Management Systems...</h1>
@@ -16,7 +13,6 @@ const Home = () => {
         </div>
         <img src={image} alt="img" />
       </HomeContainer>
-      <Footer />
     </>
   );
 };

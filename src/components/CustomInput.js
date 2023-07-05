@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const CustomInput = ({ placeholder, type, onChange, value }) => {
+const CustomInput = ({ placeholder, type, onChange, value, width }) => {
   return (
     <InputFieldContainer>
       <InputField
@@ -9,6 +9,7 @@ const CustomInput = ({ placeholder, type, onChange, value }) => {
         type={type}
         value={value}
         onChange={onChange}
+        style={{width:width}}
       />
     </InputFieldContainer>
   );
