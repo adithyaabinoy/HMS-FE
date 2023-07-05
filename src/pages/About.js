@@ -1,14 +1,11 @@
 import React from "react";
-import Navigation from "../components/Navigation";
 import { styled } from "styled-components";
-import Footer from "../components/Footer";
 import image from "../asset/about.png";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 const About = () => {
   return (
     <>
-      <Navigation />
       <AboutContainer>
         <AboutImageContainer>
           <img alt="about-img" src={image} />
@@ -54,7 +51,6 @@ const About = () => {
           </AboutInfoSection>
         </AboutInfoContainer>
       </AboutContainer>
-      <Footer />
     </>
   );
 };
@@ -162,5 +158,7 @@ const DocList = styled.div`
   height: 70px !important;
   > .MuiSvgIcon-root {
     padding-left: 29rem;
+    font-size: 3rem;
+    cursor: pointer;
   }
 `;
