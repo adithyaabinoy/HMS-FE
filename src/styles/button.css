@@ -1,0 +1,33 @@
+.customBtn {
+  padding: 8px;
+  width: 20rem;
+  color: #fff;
+  border-radius: 4px;
+  background-color: #4361ee;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  border: none;
+}
+
+.customBtn:hover {
+  padding-right: 14px;
+  padding-left: 8px;
+  scale: 1.1;
+}
+
+.customBtn:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  font-size: 20px;
+  top: 5px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.customBtn:hover:after {
+  opacity: 1;
+  right: 10px;
+}

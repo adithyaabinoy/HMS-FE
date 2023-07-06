@@ -1,0 +1,30 @@
+.navigation-container {
+  border-bottom: 1px solid lightgray;
+  height: 10%;
+}
+
+.navigationInnerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoContainer {
+  margin-left: 1rem;
+}
+
+.logoContainer img {
+    width: 80px;
+    height: 80px;
+    color: blue;
+    border-radius: 50%;
+    border: 3px solid blue;
+}
+
+.navigationMenus a {
+    text-decoration: none;
+    color: #000;
+    margin: 0 20px;
+    font-size: 20px;
+    font-weight: 600;
+}

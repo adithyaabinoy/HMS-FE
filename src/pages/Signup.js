@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { styled } from "styled-components";
 import CustomInput from "../components/CustomInput";
 import CustomButtons from "../components/CustomButtons";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../asset/logo-1.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "../redux/authReducer";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import "../styles/SignUp.css";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -26,22 +26,22 @@ const Signup = () => {
     };
     dispatch(signupUser(userCredentials)).then((data) => {
       if (data) {
-        setUsername('');
+        setUsername("");
         setEmail("");
         setPassword("");
         navigate("/login");
-        toast.success('Successfully created new user')
+        toast.success("Successfully created new user");
       }
     });
-  }
+  };
 
   return (
-    <SignupContainer>
-      <SignUpInnerContainer>
-        <img src={logo} alt="logo" />
-        <h1>Sign up to HMS</h1>
-        <InputForm onSubmit={handleSignUpEvent}>
-        <CustomInput
+    <div className="singUpContainer">
+      <div className="signUpInnerContainer">
+        <img src={logo} alt="logo" className="img" />
+        <h1>Sign up to Anand Hospital</h1>
+        <form onSubmit={handleSignUpEvent}>
+          <CustomInput
             type="text"
             placeholder="Username"
             value={username}
@@ -61,72 +61,18 @@ const Signup = () => {
           />
           <CustomButtons
             name={loading ? "loading..." : "Register"}
-            width="220px"
             type="submit"
           />
-          {/* {error && <div>{error}</div>} */}
-        </InputForm>
-        <p>
+        </form>
+        <p className="span">
           Already User?{" "}
-          <Span>
+          <span>
             <Link to="/login">SIGN-IN</Link>
-          </Span>
+          </span>
         </p>
-      </SignUpInnerContainer>
-    </SignupContainer>
+      </div>
+    </div>
   );
 };
 
 export default Signup;
-
-const SignupContainer = styled.div`
-  /* background-color: #f8f8f8; */
-  height: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 7%;
-  /* background-image: url("https://c1.wallpaperflare.com/preview/937/818/491/stethoscope-doctor-md-medical-health-hospital.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
-`;
-
-const SignUpInnerContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 50vh;
-  /* background-color: #add8e6; */
-  opacity: 0.9;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
-
-  > h1 {
-    margin: 10px;
-    font-size: 1.5rem;
-    color: darkblue;
-  }
-
-  > img {
-    width: 120px;
-    height: 120px;
-    margin: 5px 10px;
-    color: blue;
-    border-radius: 50%;
-    border: 3px solid blue;
-  }
-`;
-
-const Span = styled.span`
-  color: blue;
-  > a {
-    text-decoration: none;
-  }
-`;
-
-const InputForm = styled.form`
-  margin-top: 15px;
-`;
