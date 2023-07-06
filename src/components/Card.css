@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 20px;
+  height: 400px;
+  width: 200px;
+  background-color: white;
+}
+
+.card > img {
+  max-height: 200px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+
+.card > button {
+  background: #add8e6;
+    border: 1px solid;
+    margin-top: 10px;
+
+}
