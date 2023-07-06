@@ -1,0 +1,43 @@
+.singUpContainer {
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 78vh;
+}
+
+.signUpInnerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 40%;
+  height: 75vh;
+  opacity: 0.9;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 60px 40px -7px;
+}
+.signUpInnerContainer h1 {
+  margin: 40px;
+  font-size: 1.5rem;
+  color: darkblue;
+}
+
+.img {
+  width: 120px;
+  height: 120px;
+  margin: 5px 10px;
+  color: blue;
+  border-radius: 50%;
+  border: 3px solid blue;
+}
+
+.span {
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+span a {
+  text-decoration: none;
+}

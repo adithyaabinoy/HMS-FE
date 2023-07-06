@@ -1,0 +1,101 @@
+.about-container {
+  display: flex;
+  gap: 3rem;
+  height: 78vh;
+}
+
+.about-image-container img {
+  border-radius: 30px;
+  height: 95%;
+}
+
+.about-info-section-menus {
+  display: flex;
+  gap: 30px;
+}
+.about-info-section-menus div {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.about-info-section {
+  width: 50vw;
+  padding-right: 50px;
+  padding-bottom: 1.3rem;
+  border-bottom: 2px solid #d3d3d3;
+}
+
+.about-info-section h1 {
+  font-size: 4rem;
+}
+
+.about-info-section h3 {
+  margin: 20px 0;
+  width: 100%;
+  font-size: 2rem;
+}
+
+.tags {
+  cursor: pointer;
+  background-color: #4361ee;
+  color: #fff;
+  padding: 12px;
+  border-radius: 7px;
+  margin: 10% 0;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 900;
+  position: relative;
+  &:hover {
+    padding-right: 14px;
+    padding-left: 8px;
+    scale: 1.1;
+  }
+
+  &:after {
+    content: "»";
+    position: absolute;
+    opacity: 0;
+    font-size: 20px;
+    top: 10px;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  &::before {
+    content: "»";
+    position: absolute;
+    opacity: 0;
+    font-size: 20px;
+    top: 10px;
+    left: -20px;
+    transition: 0.5s;
+  }
+
+  &:hover:after {
+    opacity: 1;
+    right: 10px;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    left: 10px;
+  }
+}
+
+.doc-list {
+  display: flex;
+  align-items: center;
+  height: 70px !important;
+}
+
+.MuiSvgIcon-root {
+  padding-left: 29rem;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.MuiSvgIcon-root:hover {
+  scale: 1.2;
+}

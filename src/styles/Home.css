@@ -1,0 +1,74 @@
+.home-container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  gap: 3rem;
+}
+
+.home-info {
+  width: 50%;
+  margin: 5%;
+  > h1 {
+    font-size: 3rem;
+  }
+
+  > p {
+    margin-top: 25px;
+    font-size: 2rem;
+    width: 70%;
+  }
+}
+
+.booking {
+  width: 320px !important;
+  cursor: pointer;
+  background-color: #4361ee;
+  color: #fff;
+  padding: 12px;
+  border-radius: 20px;
+  text-align: center;
+  bottom: 15%;
+  right: 20px;
+  font-size: 1.3rem !important;
+  position: fixed;
+
+  > a {
+    color: #fff;
+    text-decoration: none;
+  }
+  &:hover {
+    padding-right: 14px;
+    padding-left: 8px;
+    scale: 1.1;
+  }
+
+  &:after {
+    content: "»";
+    position: absolute;
+    opacity: 0;
+    font-size: 30px;
+    top: 5px;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  &::before {
+    content: "»";
+    position: absolute;
+    opacity: 0;
+    font-size: 30px;
+    top: 5px;
+    left: -20px;
+    transition: 0.5s;
+  }
+
+  &:hover:after {
+    opacity: 1;
+    right: 10px;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    left: 10px;
+  }
+}
