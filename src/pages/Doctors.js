@@ -1,19 +1,19 @@
-import React from 'react'
+import React from "react";
 import "./Doctors.css";
-import Card from '../components/Card';
+import Card from "../components/Card";
 
 function Doctors() {
   return (
-    <div className='doctors'>
-        <div className='doctors__row'>
-            <Card
-            name="xyz"/>
-            <Card />
-              {/* cards */}
-        </div>
-
+    <div className="doctors">
+      <Card name="xyz" />
+      <Card />
+      <Card name="xyz" />
+      <Card /> 
+      <Card /> 
+      <Card /> 
+      <Card />
     </div>
-  )
+  );
 }
 
-export default Doctors
+export default Doctors;

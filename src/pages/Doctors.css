@@ -1,10 +1,4 @@
 .doctors {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-
-/* .doctors__row {
-    display: flex;
-    margin-left: 5px;
-    margin-right: 5px;
-} */
