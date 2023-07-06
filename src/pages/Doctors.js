@@ -5,12 +5,19 @@ import Card from "../components/Card";
 function Doctors() {
   return (
     <div className="doctors">
-      <Card name="xyz" />
-      <Card />
-      <Card name="xyz" />
-      <Card /> 
-      <Card /> 
-      <Card /> 
+      <Card 
+      name={"NAME"}
+      title={"CARDIOLOGIST"}
+      image=""
+      />
+      <Card
+      name={"NAME"}
+      title={"CARDIOLOGIST"}
+      image="" />
+      <Card
+      name={"NAME"}
+      title={"CARDIOLOGIST"}
+      image="" />
       <Card />
     </div>
   );
