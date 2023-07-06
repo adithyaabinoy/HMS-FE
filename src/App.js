@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Profile from "./pages/Profile";
 import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
+import Report from "./pages/Report";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/report" element={<Report />} />
         </Routes>
         <Footer />
       </BrowserRouter>
