@@ -13,7 +13,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // Redux state
-  const { loading, error } = useSelector((state) => state.user);
+  const { loading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -51,7 +51,7 @@ const Login = () => {
             width="220px"
             type="submit"
           />
-          {error && <div>{error}</div>}
+          {/* {error && <div>{error}</div>} */}
         </InputForm>
 
         <p>
@@ -68,25 +68,28 @@ const Login = () => {
 export default Login;
 
 const LoginContainer = styled.div`
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
   height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("https://c1.wallpaperflare.com/preview/937/818/491/stethoscope-doctor-md-medical-health-hospital.jpg");
+  margin-top: 7%;
+  /* background-image: url("https://c1.wallpaperflare.com/preview/937/818/491/stethoscope-doctor-md-medical-health-hospital.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 `;
 
 const LoginInnerContainer = styled.div`
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60%;
-  height: 70vh;
-  background-color: #add8e6;
+  margin: auto;
+  width: 50%;
+  height: 50vh;
+  /* background-color: #add8e6; */
   opacity: 0.9;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
@@ -106,10 +109,6 @@ const LoginInnerContainer = styled.div`
     border: 3px solid blue;
   }
 
-  @media (min-width: 768px) {
-    width: 40%;
-    height: 80vh;
-  }
 `;
 const Span = styled.span`
   color: blue;

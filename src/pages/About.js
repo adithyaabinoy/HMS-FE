@@ -2,11 +2,13 @@ import React from "react";
 import { styled } from "styled-components";
 import image from "../asset/about.png";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import Sidebar from "../components/Sidebar";
 
 const About = () => {
   return (
     <>
       <AboutContainer>
+        <Sidebar />
         <AboutImageContainer>
           <img alt="about-img" src={image} />
         </AboutImageContainer>
@@ -61,8 +63,6 @@ const AboutContainer = styled.div`
   display: flex;
   gap: 3rem;
   height: 80vh;
-  /* background-color: #caf0f8; */
-  padding-left: 20%;
 `;
 
 const AboutImageContainer = styled.div`
@@ -160,5 +160,8 @@ const DocList = styled.div`
     padding-left: 29rem;
     font-size: 3rem;
     cursor: pointer;
+    &:hover {
+      scale: 1.2;
+    }
   }
 `;

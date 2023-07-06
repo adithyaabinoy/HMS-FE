@@ -15,9 +15,10 @@ export default Footer;
 
 const FooterContainer =  styled.div`
    position: fixed;
+   overflow: hidden;
    bottom: 0;
    width: 100%;
-   height: 70px;
+   height: 10%;
    color: #000;
    text-align: center;
    border-top: 1px solid lightgrey;

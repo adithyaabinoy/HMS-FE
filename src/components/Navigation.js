@@ -28,6 +28,7 @@ export default Navigation;
 
 const NavigationContainer = styled.div`
   border-bottom: 1px solid lightgray;
+  height: 10%;
 `;
 
 const NavigationInnerContainer = styled.div`
