@@ -41,3 +41,9 @@
 span a {
   text-decoration: none;
 }
+
+.select {
+  width: 320px;
+  height: 40px;
+  font-size: 1.3rem;
+}
