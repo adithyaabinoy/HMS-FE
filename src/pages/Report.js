@@ -1,30 +1,83 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Report.css";
+import { useDispatch } from "react-redux";
+import { postReport } from "../redux/reportReducer";
 
 const Report = () => {
+  const [patientName, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [sex, setGender] = useState("");
+  const [patientId, setId] = useState("");
+  const [registerdOn, setDate] = useState("");
+
+  // test values
+
+  const [value, setTestValue] = useState("");
+  const [standardValue, setStandardValue] = useState("");
+  const [unit, setUnit] = useState("mil");
+  const [testName, setTestName] = useState("");
+
+  const dispatch = useDispatch();
+
+  let formData = [
+    {
+      testName,
+      value,
+      unit,
+      standardValue,
+    },
+  ];
+
+  let data = {
+    patientName,
+    sex,
+    age,
+    patientId,
+    testReportForm: [formData],
+  };
+
+  const saveReport = () => {
+    dispatch(postReport(data)).then((response) => console.log(response));
+  };
   return (
     <div className="reportContainer">
       <h2>LABORATORY REPORT</h2>
       <div className="patientInfo">
         <p>
           <label>Name : </label>
-          <input type="text" />
+          <input
+            type="text"
+            value={patientName}
+            onChange={(e) => setName(e.target.value)}
+          />
         </p>
         <p>
           <label>Age : </label>
-          <input type="number" />
+          <input
+            type="number"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          />
         </p>
         <p>
           <label>Gender : </label>
-          <input type="text" />
+          <input
+            type="text"
+            value={sex}
+            onChange={(e) => setGender(e.target.value)}
+          />
         </p>
         <p>
           <label>Date: </label>
-          <input type="number" />
+          <input type="number" value={registerdOn} />
         </p>
         <p>
           <label>Patient ID: </label>
-          <input type="number" />
+          <input
+            type="text"
+            value={patientId}
+            onChange={(e) => setId(e.target.value)}
+          />
         </p>
       </div>
       <div className="reportContainer-test">
@@ -39,22 +92,41 @@ const Report = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Blood</td>
-              <td>22.5gms</td>
-              <td>23gms</td>
+              <td>
+                <input
+                  placeholder="Urine"
+                  className="data-input"
+                  value={testName}
+                  onChange={(e) => setTestName(e.target.value)}
+                />
+              </td>
+              <td>
+                {" "}
+                <input
+                  placeholder="22 .gms"
+                  className="data-input"
+                  value={value}
+                  onChange={(e) => setTestValue(e.target.value)}
+                />
+                <p>{unit}</p>
+              </td>
+              <td>
+                {" "}
+                <input
+                  placeholder="22 .gms"
+                  className="data-input"
+                  value={standardValue}
+                  onChange={(e) => setStandardValue(e.target.value)}
+                />
+                <p>{unit}</p>
+              </td>
             </tr>
-            <tr>
-              <td>Urine</td>
-              <td>22.5gms</td>
-              <td>23gms</td>
-            </tr>
-            <td>Hemoglobin</td>
-            <td>12</td>
-            <td>12</td>
           </tbody>
         </table>
       </div>
-      <button className="btn">Save and Print Report</button>
+      <button className="btn" onClick={saveReport}>
+        Save and Print Report
+      </button>
     </div>
   );
 };

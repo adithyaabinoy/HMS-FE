@@ -81,3 +81,12 @@ th {
   opacity: 1;
   right: 10px;
 }
+
+.data-input {
+  border: none;
+  outline: none;
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+}
