@@ -10,19 +10,13 @@ export const fetch2 = async (api, body) => {
   return await res.json();
 };
 
-export const update = async(api, body) => {
-  const res = await fetch(api, {
-    method: "PUT",
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-    body: JSON.stringify(body),
-  });
-  return await res.json();
-}
-
 export const fetch3 = async (api, body) => {
   const res = await fetch(api, {
     method: "post",
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
     body: JSON.stringify(body),
   });
   return await res.json();

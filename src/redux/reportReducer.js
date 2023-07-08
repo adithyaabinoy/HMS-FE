@@ -27,7 +27,6 @@ const reportReducer = createSlice({
     [postReport.fulfilled]: (state, action) => {
       state.loading = false;
       state.report = action.payload;
-      console.log(state.report);
     },
     [postReport.rejected]: (state, action) => {
       state.loading = false;

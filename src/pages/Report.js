@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../styles/Report.css";
 import { useDispatch } from "react-redux";
 import { postReport } from "../redux/reportReducer";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Report = () => {
+  // patient Info
   const [patientName, setName] = useState("");
   const [age, setAge] = useState("");
   const [sex, setGender] = useState("");
@@ -18,7 +21,9 @@ const Report = () => {
   const [testName, setTestName] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  // form data
   let formData = [
     {
       testName,
@@ -27,17 +32,31 @@ const Report = () => {
       standardValue,
     },
   ];
-
+  // payload data for post request
   let data = {
     patientName,
     sex,
     age,
     patientId,
-    testReportForm: [formData],
+    testReportForm: formData,
   };
 
   const saveReport = () => {
-    dispatch(postReport(data)).then((response) => console.log(response));
+    dispatch(postReport(data)).then((response) => {
+      if (response.payload) {
+        setName("");
+        setAge("");
+        setGender("");
+        setId("");
+        setTestValue("");
+        setStandardValue("");
+        setUnit("");
+        setTestName("");
+// after test navigate to homepage
+        navigate("/");
+        toast.success("Successfully created Test Report");
+      }
+    });
   };
   return (
     <div className="reportContainer">

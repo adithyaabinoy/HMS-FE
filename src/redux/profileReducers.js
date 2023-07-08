@@ -25,7 +25,10 @@ export const getProfile = createAsyncThunk("getProfile", async () => {
 export const updateProfile = createAsyncThunk("updateProfile", async (body) => {
   const requestOptions = {
     method: "PUT",
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
     body: JSON.stringify(body),
   };
   const response = await fetch(
