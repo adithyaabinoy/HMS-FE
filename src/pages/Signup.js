@@ -12,6 +12,7 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
 
   // Redux state
   const { loading } = useSelector((state) => state.user);
@@ -23,11 +24,13 @@ const Signup = () => {
       username,
       email,
       password,
+      role,
     };
     dispatch(signupUser(userCredentials)).then((data) => {
-      if (data) {
+      if (data.payload.message === "User created successfully") {
         setUsername("");
         setEmail("");
+        setRole("");
         setPassword("");
         navigate("/login");
         toast.success("Successfully created new user");
@@ -59,6 +62,15 @@ const Signup = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <div>
+            <select
+              className="select"
+              onChange={(e) => setRole(e.target.value)}
+            >
+              <option value="Docter">Docter</option>
+              <option value="User">User</option>
+            </select>
+          </div>
           <CustomButtons
             name={loading ? "loading..." : "Register"}
             type="submit"

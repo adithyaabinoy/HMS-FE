@@ -4,7 +4,7 @@ import CustomButtons from "../components/CustomButtons";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import logo from "../asset/logo-1.svg";
-import { signinUser } from "../redux/authReducer";
+import { signInUser } from "../redux/authReducer";
 import { toast } from "react-toastify";
 import "../styles/Login.css";
 
@@ -23,9 +23,14 @@ const Login = () => {
       email,
       password,
     };
-    dispatch(signinUser(userCredentials));
-    navigate("/");
-    toast.success("Successfully signed in");
+    dispatch(signInUser(userCredentials)).then((data) => {
+      if (data.payload.message === "Invalid email/username or password") {
+        toast.error("Invalid email/username or password");
+      } else {
+        navigate("/");
+        toast.success("Successfully signed in");
+      }
+    });
   };
 
   return (

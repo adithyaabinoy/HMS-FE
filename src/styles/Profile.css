@@ -57,3 +57,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+.loader {
+  margin: auto;
+  font-size: 4rem;
+  color: red;
+  text-align: center;
+}

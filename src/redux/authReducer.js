@@ -4,6 +4,7 @@ const initialState = {
   token: "",
   loading: false,
   error: "",
+  role: '',
 };
 
 export const signupUser = createAsyncThunk("signupuser", async (body) => {
@@ -14,7 +15,7 @@ export const signupUser = createAsyncThunk("signupuser", async (body) => {
   return result;
 });
 
-export const signinUser = createAsyncThunk("signinuser", async (body) => {
+export const signInUser = createAsyncThunk("signInUser", async (body) => {
   const result = await fetch2(
     "https://hms-be-7svd.onrender.com/api/v1/login",
     body
@@ -28,6 +29,9 @@ const authReducer = createSlice({
   reducers: {
     addToken: (state, action) => {
       state.token = localStorage.getItem("token");
+    },
+    addRole: (state, action) => {
+      state.role = localStorage.getItem("role");
     },
     logout: (state, action) => {
       state.token = null;
@@ -46,20 +50,22 @@ const authReducer = createSlice({
     [signupUser.pending]: (state, action) => {
       state.loading = true;
     },
-    [signinUser.pending]: (state, action) => {
+    [signInUser.pending]: (state, action) => {
       state.loading = true;
     },
-    [signinUser.fulfilled]: (state, { payload: { error, token } }) => {
+    [signInUser.fulfilled]: (state, { payload: { error, token, role } }) => {
       state.loading = false;
       if (error) {
         state.error = error;
       } else {
+        state.role = role;
         state.token = token;
         localStorage.setItem("token", token);
+        localStorage.setItem("role", role);
       }
     },
   },
 });
 
-export const { addToken, logout } = authReducer.actions;
+export const { addToken, logout, addRole } = authReducer.actions;
 export default authReducer.reducer;

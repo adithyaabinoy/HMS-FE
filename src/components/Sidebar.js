@@ -1,8 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/sidebar.css";
+import { toast } from "react-toastify";
 
 const Sidebar = () => {
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    if(localStorage.getItem("token")){
+      localStorage.clear();
+    toast.success('You have logged out')
+    navigate('/login')
+    }
+    else {
+      toast.error('You need to log in first')
+    }
+  };
   return (
     <div className="sidebar-container">
       <img
@@ -11,11 +23,11 @@ const Sidebar = () => {
       />
       <Link to="/profile">Profile</Link>
       <Link to="/report">Create Report</Link>
-      <Link to="/profile">Check Appointment</Link>
-      <Link to="/about">Doctors List</Link>
-      <Link to="/profile">Medical History</Link>
+      <Link to="/appointments">Check Appointment</Link>
+      <Link to="/doctors">Doctors List</Link>
+      <Link to="/medical-history">Medical History</Link>
       <Link to="/about">About</Link>
-      <button type='submit' className="logout-btn">Logout</button>
+      <button type='submit' className="logout-btn" onClick={handleLogout}>Logout</button>
     </div>
   );
 };
