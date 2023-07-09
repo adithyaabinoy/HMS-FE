@@ -1,5 +1,5 @@
 import React from "react";
-import "./Contacts.css";
+import "../styles/Contacts.css";
 
 function Contacts() {
   return (
@@ -17,7 +17,7 @@ function Contacts() {
         rows="10"
         placeholder="Message"
       />
-      <button type="submit">SEND</button>
+      <button type="submit" className="btn.submit">SEND</button>
     </form>
   );
 }
