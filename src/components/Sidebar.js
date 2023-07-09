@@ -4,6 +4,7 @@ import "../styles/sidebar.css";
 import { toast } from "react-toastify";
 
 const Sidebar = () => {
+  
   const navigate = useNavigate()
   const handleLogout = () => {
     if(localStorage.getItem("token")){
