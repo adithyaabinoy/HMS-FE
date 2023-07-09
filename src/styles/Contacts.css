@@ -1,3 +1,9 @@
+.contacts {
+  width: 100%;
+  display: flex;
+  gap: 8%;
+}
+
 h1 {
   margin-bottom: 15px;
 }
@@ -27,40 +33,54 @@ form span {
   color: #add8e6;
 }
 
-form button {
-    text-align: center;
+.btn-submit {
+  text-align: center;
   bottom: 0;
-  position: absolute;
   height: 45px;
   width: 200px;
   align-items: center;
   border: none;
-  background-color: #add8e6;
-  right: 0;
-  margin: 20px;
-  padding: 1.2rem;
-
-
+  background-color: #4361ee;
+  margin: 20px 0;
+  padding: 8px;
+  color: #fff;
+  font-size: 1.2rem;
+  position: fixed;
+  bottom: 20%;
+  right: 5%;
 }
+
 .btn-submit:after {
   content: "»";
   position: absolute;
   opacity: 0;
   font-size: 20px;
-  top: 5px;
+  top: 11px;
   right: -20px;
   transition: 0.5s;
-  color: #000;
 }
 
+.btn-submit:hover {
+  padding-right: 14px;
+  padding-left: 8px;
+  scale: 1.1;
+}
 
-.contacts {
-  width: 100%;
-  display: flex;
-  gap: 8%;
+.btn-submit::before {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  font-size: 20px;
+  top: 11px;
+  left: -20px;
+  transition: 0.5s;
 }
 
 .btn-submit:hover:after {
-    opacity: 1;
-    right: 10px;
-  }
+  opacity: 1;
+  right: 10px;
+}
+.btn-submit:hover::before {
+  opacity: 1;
+  left: 10px;
+}

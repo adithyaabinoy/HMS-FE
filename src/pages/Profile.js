@@ -42,9 +42,7 @@ function Profile() {
     age,
   };
   const updateProfileInfo = () => {
-    dispatch(updateProfile(userCredentials)).then((response) =>
-      console.log(response)
-    );
+    dispatch(updateProfile(userCredentials)).then((response) =>response);
     toast.success("profile updated successfully");
   };
 

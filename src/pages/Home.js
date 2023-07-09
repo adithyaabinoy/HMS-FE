@@ -12,7 +12,7 @@ const Home = () => {
           <h1>Anand Hospital Pvt. Ltd.</h1>
           <p>Health is the condition of wisdom and the sign is cheerfulness</p>
           <p className="booking">
-            <Link to="/appointments">BOOK AN APPOINTMENT</Link>
+            <Link to="/doctors">BOOK AN APPOINTMENT</Link>
           </p>
         </div>
       </div>

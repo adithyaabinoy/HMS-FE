@@ -3,12 +3,15 @@ import "../styles/Contacts.css";
 import Sidebar from "../components/Sidebar";
 import { useForm, ValidationError } from "@formspree/react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 
 function Contacts() {
   const [state, handleSubmit] = useForm("xwkajypj");
-  
+  const navigate = useNavigate()
   const submitting = () => {
-    toast.success('Will get back to you')
+    toast.success('Loved Your response..See You Soon!!!')
+    navigate('/')
   }
   return (
     <div className="contacts">

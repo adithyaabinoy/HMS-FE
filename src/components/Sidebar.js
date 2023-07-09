@@ -2,9 +2,12 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/sidebar.css";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
-  
+
+  const { role } = useSelector((state) => state.user);
+  console.log(role)
   const navigate = useNavigate()
   const handleLogout = () => {
     if(localStorage.getItem("token")){
@@ -28,6 +31,7 @@ const Sidebar = () => {
       <Link to="/doctors">Doctors List</Link>
       <Link to="/medical-history">Medical History</Link>
       <Link to="/about">About</Link>
+
       <button type='submit' className="logout-btn" onClick={handleLogout}>Logout</button>
     </div>
   );

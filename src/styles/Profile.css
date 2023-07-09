@@ -5,22 +5,21 @@
   display: flex;
 }
 
-.profileImage {
+/* .profileImage {
   display: flex;
   padding: 2%;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
+
   gap: 5px;
-}
+} */
 
 .profileImage img {
-  width: 450px;
-  height: 450px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
 }
 
 .profileInfo {
+  width: 100%;
   margin-top: 3%;
   display: flex;
   flex-direction: column;
