@@ -9,7 +9,7 @@ function Card({image, name, title}) {
             <p><strong>{name}</strong></p>
             <div className='doctor__title'><small>{title}</small></div>
         </div>
-        <button>Book an appointment</button>
+        <button>Book an Appointment</button>
     </div>
   )
 }

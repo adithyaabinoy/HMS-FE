@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
 import Report from "./pages/Report";
 import Doctors from "./pages/Doctors";
+import Contacts from "./pages/Contacts";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/report" element={<Report />} />
           <Route path="/doctors" element={<Doctors />} />
+          <Route path="/contacts" element={<Contacts />} />
+         
         </Routes>
         <Footer />
       </BrowserRouter>
