@@ -11,6 +11,7 @@ import Navigation from "./components/Navigation";
 import Report from "./pages/Report";
 import Doctors from "./pages/Doctors";
 import Contacts from "./pages/Contacts";
+import Appoinments from "./pages/Appoinments";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/report" element={<Report />} />
           <Route path="/doctors" element={<Doctors />} />
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="/appoinments" element={<Appoinments />} />
          
         </Routes>
         <Footer />

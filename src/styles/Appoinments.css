@@ -1,0 +1,40 @@
+.appoinmentContainer {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.appoinmentOptions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column ;
+    margin: auto;
+    gap: 30px;
+}
+
+.select {
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 0 5px;
+
+}
+
+.datePicker {
+  font-size: 1.5rem;
+  width: 325px;
+  font-weight: 400;
+  height: 30px;
+
+}
+
+.btn-appoinment {
+  font-size: 1.5rem;
+  width: 325px;
+  font-weight: 400;
+  height: 30px;
+  background-color: #4361ee;
+  border: none;
+  outline: none;
+  color: #fff;
+}
