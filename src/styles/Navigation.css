@@ -14,11 +14,12 @@
 }
 
 .logoContainer img {
-    width: 80px;
-    height: 80px;
+    width: 140px;
+    height: 100px;
     color: blue;
-    border-radius: 50%;
-    border: 3px solid blue;
+    /* border-radius: 50%; */
+    /* border: 3px solid blue; */
+    margin-left: 16%;
 }
 
 .navigationMenus a {

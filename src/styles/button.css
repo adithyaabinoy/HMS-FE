@@ -1,6 +1,7 @@
 .customBtn {
   padding: 8px;
-  width: 20rem;
+  margin: 10px auto;
+  width: 20rem !important;
   color: #fff;
   border-radius: 4px;
   background-color: #4361ee;
@@ -22,7 +23,7 @@
   position: absolute;
   opacity: 0;
   font-size: 20px;
-  top: 5px;
+  top: 10px;
   right: -20px;
   transition: 0.5s;
 }

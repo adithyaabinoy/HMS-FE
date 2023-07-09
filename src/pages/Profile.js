@@ -4,12 +4,12 @@ import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButtons";
 import Sidebar from "../components/Sidebar";
 import "../styles/Profile.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getProfile, updateProfile } from "../redux/profileReducers";
 import { toast } from "react-toastify";
 
 function Profile() {
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phone, setPhoneNumber] = useState("");
   const [age, setAge] = useState("");
   const [username, setUsername] = useState("");
   const [gender, setGender] = useState("");
@@ -35,24 +35,23 @@ function Profile() {
   let userCredentials = {
     username,
     email,
-    phoneNumber,
+    phone,
     gender,
     patientId,
     address,
     age,
   };
   const updateProfileInfo = () => {
-    dispatch(updateProfile(userCredentials)).then((response) =>
-      console.log(response)
-    );
+    dispatch(updateProfile(userCredentials)).then((response) =>response);
     toast.success("profile updated successfully");
   };
 
+  const { role } = useSelector((state) => state.user);
   return (
     <>
       <div className="profileContainer">
         <Sidebar />
-        <div className="profileInnerContainer">
+       {role?  <div className="profileInnerContainer">
           <div className="profileImage">
             <img
               src="https://e1.pxfuel.com/desktop-wallpaper/399/614/desktop-wallpaper-cute-baby-girl-kids-cute-kids-thumbnail.jpg"
@@ -84,9 +83,9 @@ function Profile() {
 
             <CustomInput
               placeholder="Phone Number"
-              type="number"
+              type="text"
               width="25rem"
-              value={phoneNumber}
+              value={phone}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
             <CustomInput
@@ -121,7 +120,7 @@ function Profile() {
               onClick={updateProfileInfo}
             />
           </div>
-        </div>
+        </div>:  <div className="loader">Login First</div>}
       </div>
     </>
   );

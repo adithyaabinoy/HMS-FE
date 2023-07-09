@@ -13,44 +13,44 @@
   font-size: 1.3rem;
   outline: none;
   position: relative;
-  margin: 22% 15%;
+  margin: 10% 15%;
   border: none;
+}
 
-  &:hover {
-    padding-right: 14px;
-    padding-left: 8px;
-    scale: 1.1;
-  }
+.logout-btn:hover {
+  padding-right: 14px;
+  padding-left: 8px;
+  scale: 1.1;
+}
 
-  &:after {
-    content: "»";
-    position: absolute;
-    opacity: 0;
-    font-size: 20px;
-    top: 10px;
-    right: -20px;
-    transition: 0.5s;
-  }
+.logout-btn:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  font-size: 20px;
+  top: 10px;
+  right: -20px;
+  transition: 0.5s;
+}
 
-  &::before {
-    content: "»";
-    position: absolute;
-    opacity: 0;
-    font-size: 20px;
-    top: 10px;
-    left: -20px;
-    transition: 0.5s;
-  }
+.logout-btn::before {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  font-size: 20px;
+  top: 10px;
+  left: -20px;
+  transition: 0.5s;
+}
 
-  &:hover:after {
-    opacity: 1;
-    right: 10px;
-  }
+.logout-btn:hover:after {
+  opacity: 1;
+  right: 10px;
+}
 
-  &:hover::before {
-    opacity: 1;
-    left: 10px;
-  }
+.logout-btn:hover::before {
+  opacity: 1;
+  left: 10px;
 }
 
 .sidebar-container img {
@@ -68,45 +68,44 @@
   color: #fff;
   padding: 7px;
   border-radius: 5px;
-  margin: 10px 60px;
+  margin: 5px 60px;
   text-align: center;
   font-size: 1.1rem;
   font-weight: 400;
   position: relative;
   text-decoration: none;
-  &:hover {
-    padding-right: 14px;
-    padding-left: 8px;
-    scale: 1.1;
-  }
+}
+.sidebar-container a:hover {
+  padding-right: 14px;
+  padding-left: 8px;
+  scale: 1.1;
+}
 
-  &:after {
-    content: "»";
-    position: absolute;
-    opacity: 0;
-    font-size: 20px;
-    top: 5px;
-    right: -20px;
-    transition: 0.5s;
-  }
+.sidebar-container a:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  font-size: 20px;
+  top: 5px;
+  right: -20px;
+  transition: 0.5s;
+}
 
-  &::before {
-    content: "»";
-    position: absolute;
-    opacity: 0;
-    font-size: 20px;
-    top: 5px;
-    left: -20px;
-    transition: 0.5s;
-  }
+.sidebar-container a::before {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  font-size: 20px;
+  top: 5px;
+  left: -20px;
+  transition: 0.5s;
+}
 
-  &:hover:after {
-    opacity: 1;
-    right: 10px;
-  }
-
-  &:hover::before {
-    opacity: 1;
-    left: 10px;
-  }
+.sidebar-container a:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.sidebar-container a:hover::before {
+  opacity: 1;
+  left: 10px;
 }
