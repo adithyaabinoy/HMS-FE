@@ -27,7 +27,7 @@ const Sidebar = () => {
       />
       <Link to="/profile">Profile</Link>
       <Link to="/report">Create Report</Link>
-      <Link to="/appointments">Check Appointment</Link>
+      <Link to="/appoinments">Check appoinments</Link>
       <Link to="/doctors">Doctors List</Link>
       <Link to="/medical-history">Medical History</Link>
       <Link to="/about">About</Link>

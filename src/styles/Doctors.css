@@ -1,6 +1,10 @@
 .doctors {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    padding: 2px;
+    padding: 5px;
   }
 
+.doctors__container {
+  width: 100%;
+  display: flex;
+}
