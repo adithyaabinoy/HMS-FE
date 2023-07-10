@@ -11,7 +11,8 @@ import Navigation from "./components/Navigation";
 import Report from "./pages/Report";
 import Doctors from "./pages/Doctors";
 import Contacts from "./pages/Contacts";
-import Appoinments from "./pages/Appoinments";
+import Appointments from "./pages/Appointments";
+import AppointmentList from "./pages/AppointmentList";
 
 function App() {
   return (
@@ -28,8 +29,9 @@ function App() {
           <Route path="/report" element={<Report />} />
           <Route path="/doctors" element={<Doctors />} />
           <Route path="/contacts" element={<Contacts />} />
-          <Route path="/appoinments" element={<Appoinments />} />
-         
+          <Route path="/appointments" element={<Appointments />} />
+          <Route path="/*" element={<h1>Page Not Found</h1>} />
+          <Route path="/appointments-list" element={<AppointmentList />}/>
         </Routes>
         <Footer />
       </BrowserRouter>

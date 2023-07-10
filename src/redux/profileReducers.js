@@ -36,7 +36,6 @@ export const updateProfile = createAsyncThunk("updateProfile", async (body) => {
     requestOptions
   );
   const result = response.json();
-  console.log(result);
   return result;
 });
 

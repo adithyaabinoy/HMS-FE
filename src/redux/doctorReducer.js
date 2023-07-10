@@ -6,9 +6,18 @@ const initialState = {
   doctorList: "",
 };
 
+
+// export const fetchDoctor = createAsyncThunk("doctorsList", async () => {
+//   const response = await fetch(
+//     "https://hms-be-7svd.onrender.com/api/v1/doctorlist"
+//   ).then((response) => response.json())
+//   .then((data) => (data));
+//   return response;
+// });
+
 export const fetchDoctorsList = createAsyncThunk("doctorsList", async () => {
   const response = await fetch(
-    "https://hms-be-7svd.onrender.com/api/v1/doctorlist"
+    'https://hms-be-7svd.onrender.com/api/v1/doctorlist/'
   ).then((response) => response.json())
   .then((data) => (data));
   return response;

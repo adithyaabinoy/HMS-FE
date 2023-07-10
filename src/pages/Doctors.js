@@ -7,7 +7,6 @@ import { fetchDoctorsList } from "../redux/doctorReducer";
 
 function Doctors() {
   const [doctors, setDoctorsList] = useState("");
-
   const { doctorList } = useSelector((state) => state.doctorList);
   const dispatch = useDispatch();
 
@@ -28,7 +27,7 @@ function Doctors() {
               <Card
                 name={e.name}
                 title={e.specialization}
-                image=""
+                image={e.doctorPhoto}
                 key={i}
                 description={e.description}
                 src={e.doctorPhoto}

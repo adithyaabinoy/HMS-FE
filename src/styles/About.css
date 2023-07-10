@@ -90,12 +90,12 @@
   height: 70px !important;
 }
 
-.MuiSvgIcon-root {
+.about-info-section .MuiSvgIcon-root {
   padding-left: 29rem;
   font-size: 3rem;
   cursor: pointer;
 }
 
-.MuiSvgIcon-root:hover {
+.about-info-section .MuiSvgIcon-root:hover {
   scale: 1.2;
 }

@@ -2,21 +2,16 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/sidebar.css";
 import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
 
 const Sidebar = () => {
-
-  const { role } = useSelector((state) => state.user);
-  console.log(role)
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleLogout = () => {
-    if(localStorage.getItem("token")){
+    if (localStorage.getItem("token")) {
       localStorage.clear();
-    toast.success('You have logged out')
-    navigate('/login')
-    }
-    else {
-      toast.error('You need to log in first')
+      toast.error("You have logged out");
+      navigate("/login");
+    } else {
+      toast.error("You need to log in first");
     }
   };
   return (
@@ -27,15 +22,16 @@ const Sidebar = () => {
       />
       <Link to="/profile">Profile</Link>
       <Link to="/report">Create Report</Link>
-      <Link to="/appoinments">Check appoinments</Link>
+      <Link to="/appointments">Book Appointment</Link>
       <Link to="/doctors">Doctors List</Link>
       <Link to="/medical-history">Medical History</Link>
       <Link to="/about">About</Link>
 
-      <button type='submit' className="logout-btn" onClick={handleLogout}>Logout</button>
+      <button type="submit" className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 };
 
 export default Sidebar;
-
