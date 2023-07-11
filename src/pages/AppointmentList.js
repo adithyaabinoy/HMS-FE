@@ -15,15 +15,15 @@ const AppointmentList = () => {
     setList(appointmentList);
   }, []);
 
-
+console.log(list)
 
   return (
     <div className="List-container">
       <Sidebar />
       <div className="search">
         <div className="search-list">
-          {/* <input type="text" />
-          <SearchIcon /> */}
+          <input type="text" />
+          <SearchIcon />
         </div>
 
         {list &&

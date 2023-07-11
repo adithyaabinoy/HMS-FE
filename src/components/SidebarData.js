@@ -66,7 +66,7 @@ const userDataSet = [
 ];
 
 function SidebarData(role) {
-  if (role === 'admin') {
+  if (role === 'Admin') {
     return adminDataSet;
   } return userDataSet;
 }

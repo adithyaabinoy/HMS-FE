@@ -1,20 +1,48 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { fetch3 } from "../helpers/fetch";
 
 const initialState = {
   loading: false,
   error: "",
   appointmentList: "",
+  doctorName: "",
+  addAppointment: "",
 };
 
+// Adding appointment
+
+export const createAppointments = createAsyncThunk(
+  "addAppointment",
+  async (body) => {
+    const result = await fetch3(
+      "https://hms-be-7svd.onrender.com/api/v1/bookapp",
+      body
+    );
+    return result;
+  }
+);
+
+// fetch doctors name actions
+
+export const getDoctorNames = createAsyncThunk("doctorName", async () => {
+  const response = await fetch(
+    "https://hms-be-7svd.onrender.com/api/v1/doctor/"
+  )
+    .then((response) => response.json())
+    .then((data) => data);
+  return response;
+});
+
+// fetching appointments actions
 export const fetchAppointmentList = createAsyncThunk(
   "appointmentList",
   async () => {
     const requestOptions = {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      };
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
     const response = await fetch(
       "https://hms-be-7svd.onrender.com/api/v1/allappointments/",
       requestOptions
@@ -35,6 +63,28 @@ const appointmentReducer = createSlice({
       state.appointmentList = action.payload;
     },
     [fetchAppointmentList.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [getDoctorNames.pending]: (state) => {
+      state.loading = true;
+    },
+    [getDoctorNames.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.doctorName = action.payload;
+    },
+    [getDoctorNames.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [createAppointments.pending]: (state) => {
+      state.loading = true;
+    },
+    [createAppointments.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.addAppointment = action.payload;
+    },
+    [createAppointments.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
