@@ -71,16 +71,14 @@
   padding-top: 12%;
 }
 
-.image-upload-button {
+.upload-image {
   background-color: #4361ee;
-  border: none;
   color: white;
   padding: 0.8rem 1.2rem;
   margin-top: 1rem;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 1.1rem;
+  width: 200px;
 }
 
-.image-upload-button:hover {
-  background-color: #3e8e41;
-}

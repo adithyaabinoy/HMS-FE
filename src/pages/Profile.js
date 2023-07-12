@@ -34,7 +34,7 @@ function Profile() {
     setId(e.patientId);
     setEmail(e.email);
     setAddress(e.address);
-    setImage(e.profilePhoto);
+    setImage(e.profilePhoto.data.data);
   };
   useEffect(() => {
     dispatch(getProfile()).then((data) => userData(data.payload));
@@ -63,13 +63,6 @@ function Profile() {
     setSelected(event.target.value);
   };
 
-  // const test = new Uint8Array(profilePhoto.data.data)
-  // let stringValue = String.fromCharCode.apply(null, test);
-
-  console.log(profilePhoto);
-
-  // const name = profilePhoto.name;
-
   const blob = new Blob([Int8Array.from(profilePhoto)], {
     type: profilePhoto.contentType,
   });
@@ -84,7 +77,7 @@ function Profile() {
           <div className="profileInnerContainer">
             <div className="profileImage">
               <img src={image} alt="img" />
-              <input type="file" id="fileInput" />
+              <input type="file" id="fileInput" className="upload-image" />
             </div>
             <div className="profileInfo">
               <CustomInput
