@@ -68,7 +68,7 @@ function Profile() {
   });
 
   const image = window.URL.createObjectURL(blob);
-
+  localStorage.setItem('profilePhoto', image)
   return (
     <>
       <div className="profileContainer">

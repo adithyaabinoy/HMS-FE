@@ -6,6 +6,7 @@ import SidebarData from "./SidebarData";
 
 const Sidebar = () => {
 const role = localStorage.getItem("role");
+const image = localStorage.getItem("profilePhoto");
   const navigate = useNavigate();
   const handleLogout = () => {
     if (localStorage.getItem("token")) {
@@ -19,7 +20,7 @@ const role = localStorage.getItem("role");
   return (
     <div className="sidebar-container">
       <img
-        src="https://e1.pxfuel.com/desktop-wallpaper/399/614/desktop-wallpaper-cute-baby-girl-kids-cute-kids-thumbnail.jpg"
+        src={image}
         alt="profile"
       />
       {SidebarData? SidebarData(role).map((data)=>{
