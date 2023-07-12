@@ -1,74 +1,90 @@
-import React from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
-
 const adminDataSet = [
   {
     id: 1,
-    title: 'Doctors',
-    path: '/',
-    icon: <AiIcons.AiOutlineHome />,
-    className: 'nav-text',
+    title: 'Profile',
+    path: '/profile',
   },
   {
     id: 2,
-    title: 'Reservations',
-    path: '/myreservations',
-    icon: <IoIcons.IoIosPaper />,
-    className: 'nav-text',
+    title: 'Add Doctors',
+    path: '/add-doctor',
+   
   },
   {
     id: 3,
-    title: 'Book Appointments',
-    path: '/book_appointment',
-    icon: <FaIcons.FaEnvelopeOpenText />,
-    className: 'nav-text',
+    title: 'Create Report',
+    path: '/report',
   },
   {
     id: 4,
-    title: 'All Doctors',
-    path: '/all_doctors',
-    icon: <FaIcons.FaBriefcaseMedical />,
-    className: 'nav-text',
+    title: 'Search Medical History',
+    path: '/medical-history',
   },
   {
     id: 5,
-    title: 'Add Doctors',
-    path: '/add_doctor',
-    icon: <AiIcons.AiTwotoneShopping />,
-    className: 'nav-text',
+    title: 'Doctor List',
+    path: '/doctors',
   },
 ];
 
 const userDataSet = [
   {
     id: 1,
-    title: 'Doctors',
-    path: '/',
-    icon: <AiIcons.AiOutlineHome />,
-    className: 'nav-text',
+    title: 'Profile',
+    path: '/profile',
+  },
+  {
+    id: 2,
+    title: 'Book Appointments',
+    path: '/appointments',
+  },
+  {
+    id: 3,
+    title: 'Medical History',
+    path: `/medical-history':${'user-id'}`,
+  },
+  {
+    id: 4,
+    title: 'Doctor List',
+    path: '/doctors',
+  },
+];
+
+const doctorDataSet = [
+  {
+    id: 1,
+    title: 'Profile',
+    path: '/profile',
   },
   {
     id: 2,
     title: 'Reservations',
     path: '/myreservations',
-    icon: <IoIcons.IoIosPaper />,
-    className: 'nav-text',
   },
   {
     id: 3,
-    title: 'Book Appointments',
-    path: '/book_appointment',
-    icon: <FaIcons.FaEnvelopeOpenText />,
-    className: 'nav-text',
+    title: 'Check Appointments',
+    path: `appointments':${'doctor-id'}`,
   },
-];
+  {
+    id: 4,
+    title: 'Appointments List',
+    path: '/appointments-list',
+  },
+  {
+    id: 5,
+    title: 'Doctor List',
+    path: '/doctors',
+  },
+]
 
-function SidebarData(role) {
+const SidebarData = (role) => {
   if (role === 'Admin') {
     return adminDataSet;
-  } return userDataSet;
+  } else if (role === 'Docter') {
+    return doctorDataSet;
+  }else return userDataSet
 }
+   
 
 export default SidebarData;

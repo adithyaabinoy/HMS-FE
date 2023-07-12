@@ -2,8 +2,10 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/sidebar.css";
 import { toast } from "react-toastify";
+import SidebarData from "./SidebarData";
 
 const Sidebar = () => {
+const role = localStorage.getItem("role");
   const navigate = useNavigate();
   const handleLogout = () => {
     if (localStorage.getItem("token")) {
@@ -20,12 +22,9 @@ const Sidebar = () => {
         src="https://e1.pxfuel.com/desktop-wallpaper/399/614/desktop-wallpaper-cute-baby-girl-kids-cute-kids-thumbnail.jpg"
         alt="profile"
       />
-      <Link to="/profile">Profile</Link>
-      <Link to="/report">Create Report</Link>
-      <Link to="/appointments">Book Appointment</Link>
-      <Link to="/doctors">Doctors List</Link>
-      <Link to="/medical-history">Medical History</Link>
-      <Link to="/about">About</Link>
+      {SidebarData? SidebarData(role).map((data)=>{
+        return <Link to={data.path} key={data.id}>{data.title}</Link>
+      }): <p style={{textAlign: 'center'}}>Login Again</p>}
 
       <button type="submit" className="logout-btn" onClick={handleLogout}>
         Logout

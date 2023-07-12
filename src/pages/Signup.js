@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomButtons from "../components/CustomButtons";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../asset/logo-1.svg";
+import logo from "../asset/log03.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "../redux/authReducer";
 import { toast } from "react-toastify";
@@ -67,6 +67,7 @@ const Signup = () => {
               className="select"
               onChange={(e) => setRole(e.target.value)}
             >
+              <option value=''>---Choose Options---</option>
               <option value="Docter">Docter</option>
               <option value="User">User</option>
             </select>

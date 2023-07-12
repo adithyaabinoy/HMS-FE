@@ -3,7 +3,7 @@ import CustomInput from "../components/CustomInput";
 import CustomButtons from "../components/CustomButtons";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import logo from "../asset/logo-1.svg";
+import logo from "../asset/log03.svg";
 import { signInUser } from "../redux/authReducer";
 import { toast } from "react-toastify";
 import "../styles/Login.css";

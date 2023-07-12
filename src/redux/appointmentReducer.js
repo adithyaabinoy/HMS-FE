@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
   error: "",
   appointmentList: "",
-  doctorName: "",
+  doctorName: {},
   addAppointment: "",
 };
 

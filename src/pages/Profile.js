@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButtons";
 import Sidebar from "../components/Sidebar";
@@ -6,10 +6,9 @@ import "../styles/Profile.css";
 import { useDispatch } from "react-redux";
 import { getProfile, updateProfile } from "../redux/profileReducers";
 import { toast } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
 function Profile() {
   //image uploading
-  const imageRef = useRef(null);
   const [profilePhoto, setImage] = useState("");
 
   const [phone, setPhoneNumber] = useState("");
@@ -26,7 +25,7 @@ function Profile() {
   const [gender, setSelected] = useState(options[0].value);
 
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const userData = (e) => {
     setAge(e.age);
     setPhoneNumber(e.phone);
@@ -39,21 +38,24 @@ function Profile() {
   };
   useEffect(() => {
     dispatch(getProfile()).then((data) => userData(data.payload));
-  }, []);
+  }, [dispatch]);
 
-  let userCredentials = {
-    username,
-    email,
-    phone,
-    gender,
-    patientId,
-    address,
-    age,
-    profilePhoto,
-  };
-  const updateProfileInfo = () => {
-    dispatch(updateProfile(userCredentials)).then((response) => response);
+  const updateProfileInfo = (e) => {
+    const formData = new FormData();
+    const fileInput = document.querySelector("#fileInput");
+    setImage(URL.createObjectURL(fileInput.files[0]));
+    formData.append("profilePhoto", fileInput.files[0]);
+    formData.append("userName", username);
+    formData.append("phone", phone);
+    formData.append("gender", gender);
+    formData.append("patientId", patientId);
+    formData.append("email", email);
+    formData.append("address", address);
+    formData.append("age", age);
+    dispatch(updateProfile(formData)).then((response) => response);
+
     toast.success("profile updated successfully");
+    navigate("/");
   };
 
   const token = localStorage.getItem("token");
@@ -61,67 +63,28 @@ function Profile() {
     setSelected(event.target.value);
   };
 
-  const uploadImage = () => {
-    imageRef.current.click();
-  };
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    const imageName = event.target.files[0].name;
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      const img = new Image();
-      img.src = reader.result;
-      img.onload = () => {
-        const canvas = document.createElement("canvas");
-        const maxSize = Math.max(img.width, img.height);
-        canvas.width = maxSize;
-        canvas.height = maxSize;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(
-          img,
-          (maxSize - img.width) / 2,
-          (maxSize - img.height) / 2
-        );
-        canvas.toBlob(
-          (blob) => {
-            const file = new File([blob], imageName, {
-              type: "image/png",
-              lastModified: Date.now(),
-            });
-            console.log(file);
-            setImage(file);
-          },
-          "image/jpeg",
-          0.8
-        );
-      };
-    };
-  };
+  // const test = new Uint8Array(profilePhoto.data.data)
+  // let stringValue = String.fromCharCode.apply(null, test);
+
+  console.log(profilePhoto);
+
+  // const name = profilePhoto.name;
+
+  const blob = new Blob([Int8Array.from(profilePhoto)], {
+    type: profilePhoto.contentType,
+  });
+
+  const image = window.URL.createObjectURL(blob);
+
   return (
     <>
       <div className="profileContainer">
         <Sidebar />
         {token ? (
           <div className="profileInnerContainer">
-            <div className="profileImage" onClick={uploadImage}>
-              {profilePhoto ? (
-                <img src={URL.createObjectURL(profilePhoto)} alt="profile" />
-              ) : (
-                <img
-                  src="https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper-thumbnail.png"
-                  alt="profile"
-                />
-              )}
-              <button className="image-upload-button">
-                Change profile Image
-              </button>
-              <input
-                type="file"
-                ref={imageRef}
-                style={{ display: "none" }}
-                onChange={handleImageChange}
-              />
+            <div className="profileImage">
+              <img src={image} alt="img" />
+              <input type="file" id="fileInput" />
             </div>
             <div className="profileInfo">
               <CustomInput

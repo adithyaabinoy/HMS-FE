@@ -2,10 +2,11 @@ import React from "react";
 import "../styles/Card.css";
 import CustomButtons from './CustomButtons'
 
-function Card({ URL, name, title, description, click }) {
+const  Card = ({ URL, name, title, description, click }) => {
   return (
     <div className="card">
-      <img src={URL} alt="img" />
+      {URL? <img src={URL} alt="img" /> : <img src='https://static.vecteezy.com/system/resources/previews/002/896/807/original/female-doctor-using-her-digital-tablet-free-vector.jpg' alt=""/>}
+      
       <div className="doctor__info">
         <p>
           <strong>{name}</strong>

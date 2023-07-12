@@ -26,10 +26,9 @@ export const updateProfile = createAsyncThunk("updateProfile", async (body) => {
   const requestOptions = {
     method: "PUT",
     headers: {
-      "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
-    body: JSON.stringify(body),
+    body,
   };
   const response = await fetch(
     "https://hms-be-7svd.onrender.com/api/v1/updateprofile",

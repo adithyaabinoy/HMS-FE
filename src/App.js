@@ -13,8 +13,25 @@ import Doctors from "./pages/Doctors";
 import Contacts from "./pages/Contacts";
 import Appointments from "./pages/Appointments";
 import AppointmentList from "./pages/AppointmentList";
+import {
+  fetchAppointmentList,
+  getDoctorNames,
+} from "./redux/appointmentReducer";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchDoctorsList } from "./redux/doctorReducer";
+import { getReportList } from "./redux/reportReducer";
+import { getProfile } from "./redux/profileReducers";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getDoctorNames());
+    dispatch(fetchDoctorsList());
+    dispatch(fetchAppointmentList());
+    dispatch(getReportList());
+    dispatch(getProfile())
+  });
   return (
     <div className="App">
       <BrowserRouter>
@@ -31,7 +48,7 @@ function App() {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/*" element={<h1>Page Not Found</h1>} />
-          <Route path="/appointments-list" element={<AppointmentList />}/>
+          <Route path="/appointments-list" element={<AppointmentList />} />
         </Routes>
         <Footer />
       </BrowserRouter>
