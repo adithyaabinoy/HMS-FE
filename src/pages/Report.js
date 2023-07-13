@@ -17,7 +17,7 @@ const Report = () => {
 
   const [value, setTestValue] = useState("");
   const [standardValue, setStandardValue] = useState("");
-  const [unit, setUnit] = useState("mil");
+  const [unit, setUnit] = useState("");
   const [testName, setTestName] = useState("");
 
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ const Report = () => {
         setStandardValue("");
         setUnit("");
         setTestName("");
-// after test navigate to homepage
+        // after test navigate to homepage
         navigate("/");
         toast.success("Successfully created Test Report");
       }
@@ -61,6 +61,7 @@ const Report = () => {
   return (
     <div className="reportContainer">
       <h2>LABORATORY REPORT</h2>
+
       <div className="patientInfo">
         <p>
           <label>Name : </label>
@@ -88,7 +89,11 @@ const Report = () => {
         </p>
         <p>
           <label>Date: </label>
-          <input type="number" value={registerdOn} />
+          <input
+            type="number"
+            value={registerdOn}
+            onChange={(e) => setDate(e.target.value)}
+          />
         </p>
         <p>
           <label>Patient ID: </label>
@@ -100,7 +105,6 @@ const Report = () => {
         </p>
       </div>
       <div className="reportContainer-test">
-        <h3>COMPLETE BLOOD COUNT</h3>
         <table>
           <thead>
             <tr>
@@ -113,31 +117,45 @@ const Report = () => {
             <tr>
               <td>
                 <input
-                  placeholder="Urine"
+                  placeholder="Test Name"
                   className="data-input"
                   value={testName}
                   onChange={(e) => setTestName(e.target.value)}
                 />
               </td>
               <td>
-                {" "}
-                <input
-                  placeholder="22 .gms"
-                  className="data-input"
-                  value={value}
-                  onChange={(e) => setTestValue(e.target.value)}
-                />
-                <p>{unit}</p>
+                <div className="test-values">
+                  <input
+                    placeholder="Test Value"
+                    className="data-input"
+                    value={value}
+                    onChange={(e) => setTestValue(e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    value={unit}
+                    className="data-input"
+                    onChange={(e) => setUnit(e.target.value)}
+                    placeholder="unit"
+                  />
+                </div>
               </td>
               <td>
-                {" "}
-                <input
-                  placeholder="22 .gms"
-                  className="data-input"
-                  value={standardValue}
-                  onChange={(e) => setStandardValue(e.target.value)}
-                />
-                <p>{unit}</p>
+                <div className="test-values">
+                  <input
+                    placeholder="Standard value"
+                    className="data-input"
+                    value={standardValue}
+                    onChange={(e) => setStandardValue(e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    value={unit}
+                    className="data-input"
+                    onChange={(e) => setUnit(e.target.value)}
+                    placeholder="unit"
+                  />
+                </div>
               </td>
             </tr>
           </tbody>
