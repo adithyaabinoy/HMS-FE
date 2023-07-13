@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
 import Sidebar from "../components/Sidebar";
 import "../styles/AppointmentList.css";
 import { useSelector } from "react-redux";
@@ -15,21 +14,33 @@ const AppointmentList = () => {
     <div className="List-container">
       <Sidebar />
       <div className="search">
-        <div className="search-list">
-          <input type="text" />
-          <SearchIcon />
-        </div>
-
-        {list? list.map((data, index) => {
-          return (
-            <div key={index} className="medical-info">
-              <p>patient ID: {data.patientId}</p>
-              <p>Patient Name: {data.username}</p>
-              <p>Doctor Name :{data.doctorName}</p>
-              <p>Date: {data.date}</p>
-            </div>
-          );
-        }): <p style={{textAlign: 'center'}}>Loading......</p>}
+        <h1>Appointment List</h1>
+        <table>
+          <tr>
+            <th>Patient ID</th>
+            <th>Patient Name</th>
+            <th>Doctor Name</th>
+            <th>Date</th>
+          </tr>
+          {list ? (
+            list.map((data, index) => {
+              return (
+                <>
+                  <tbody>
+                    <tr>
+                      <td>{data.patientId}</td>
+                      <td>{data.username}</td>
+                      <td>{data.doctorName}</td>
+                      <td>{data.date}</td>
+                    </tr>
+                  </tbody>
+                </>
+              );
+            })
+          ) : (
+            <p style={{ textAlign: "center" }}>Loading......</p>
+          )}
+        </table>
       </div>
     </div>
   );

@@ -1,0 +1,24 @@
+.medical-history-info {
+    display: flex;
+    gap: 10px;
+    }
+    
+    
+    .medical-history-table {
+    width: 75vw;
+    overflow-y: scroll;
+    text-align: center;
+    }
+    
+    
+    .medical-history-table tbody {
+    overflow-y: scroll;
+    height: 30vh;
+    }
+    
+    
+    .test-data {
+    display: flex;
+    }
+    
+    

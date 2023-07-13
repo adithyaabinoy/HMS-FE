@@ -21,6 +21,8 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchDoctorsList } from "./redux/doctorReducer";
 import { getReportList } from "./redux/reportReducer";
+import AddDoctor from "./pages/AddDoctor";
+import MedicalHistory from "./pages/MedicalHistory";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +49,8 @@ function App() {
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/*" element={<h1>Page Not Found</h1>} />
           <Route path="/appointments-list" element={<AppointmentList />} />
+          <Route path="/add-doctor" element={<AddDoctor />} />
+          <Route path="/medical-history" element={<MedicalHistory />} />
         </Routes>
         <Footer />
       </BrowserRouter>

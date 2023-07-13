@@ -1,32 +1,21 @@
 .List-container {
   display: flex;
-}
-
-.search {
-  padding: 50px;
-}
-
-.search-list {
- display: flex;
- border: 2px solid #000;
- border-radius: 20px;
-
-}
-
-.search-list input  {
-  outline: none;
-  border: none;
-  width: 100%;
-  font-size: 1.3rem;
-  padding: 12px;
-}
-
-.search-list .MuiSvgIcon-root {
-  font-size: 3rem;
-}
-
-.medical-info {
-  font-size: 1.3rem;
-  display: flex;
-  gap: 15px;
-}
+  }
+  
+  
+  table {
+  width: 70vw;
+  height: 70vh;
+  }
+  
+  
+  td {
+  text-align: center;
+  }
+  
+  
+  .search h1 {
+  text-align: center;
+  }
+  
+  
