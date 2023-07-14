@@ -1,8 +1,9 @@
 .doctors {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 5px;
-  }
+  display: flex;
+  padding: 5px;
+  flex-wrap: wrap;
+  width: 80%;
+}
 
 .doctors__container {
   width: 100%;

@@ -1,59 +1,59 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { addingDoctor } from "../redux/doctorReducer";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import '../styles/AddDoctor.css'
 
 const AddDoctor = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [specializations, setSpecializations] = useState("");
+  const [image, setImage] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  useEffect(() => {}, []);
-
-  const data = {
-    name,
-    description,
-    specializations,
-  };
 
   const addDoctor = () => {
-    dispatch(addingDoctor(data));
+    const formData = new FormData();
+    const fileInput = document.querySelector("#fileInput");
+    setImage(URL.createObjectURL(fileInput.files[0]));
+    formData.append("doctorPhoto", fileInput.files[0]);
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("specializations", specializations);
+    dispatch(addingDoctor(formData));
     navigate("/");
     toast.success("Added Doctor");
   };
-
-//   const blob = new Blob([Int8Array.from(profilePhoto)], {
-//     type: profilePhoto.contentType,
-//   });
-
-//   const image = window.URL.createObjectURL(blob);
+  console.log(image)
   return (
-    <div style={{ display: "flex" }}>
+    <div className="addDoctorContainer">
       <Sidebar />
-      <div>
+      <div className="addDoctorInnerContainer">
         <input
           type="text"
-          placeholder="name"
+          placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="addDoctorInput"
         />
         <input
-          placeholder="specialization"
+          placeholder="Specialization"
           type="text"
           value={specializations}
           onChange={(e) => setSpecializations(e.target.value)}
+          className="addDoctorInput"
         />
         <input
-          placeholder="description"
+          placeholder="Description"
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          className="addDoctorInput"
         />
-         <input type="file" id="fileInput"/>
-        <button onClick={addDoctor}>Add Doctor</button>
+         <input type="file" id="fileInput"  className="addDoctorInput"/>
+        <button onClick={addDoctor} className="btn-addDoctor">Add Doctor</button>
       </div>
     </div>
   );
