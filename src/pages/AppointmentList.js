@@ -20,9 +20,10 @@ const AppointmentList = () => {
             <th>Patient ID</th>
             <th>Patient Name</th>
             <th>Doctor Name</th>
+            <th>Time</th>
             <th>Date</th>
           </tr>
-          {list ? (
+          {list && list.length > 0 ? (
             list.map((data, index) => {
               return (
                 <>

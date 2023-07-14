@@ -1,5 +1,6 @@
 .reportContainer {
   width: 100%;
+  display: flex;
 }
 
 .reportContainer h2 {

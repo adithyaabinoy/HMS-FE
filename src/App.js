@@ -52,7 +52,7 @@ function App() {
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/medical-history" element={<MedicalHistory />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );

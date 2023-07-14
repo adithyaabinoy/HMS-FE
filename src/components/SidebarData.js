@@ -25,6 +25,11 @@ const adminDataSet = [
     title: 'Doctor List',
     path: '/doctors',
   },
+  {
+    id: 6,
+    title: 'Appointment List',
+    path: '/appointments-list',
+  },
 ];
 
 const userDataSet = [
@@ -41,12 +46,17 @@ const userDataSet = [
   {
     id: 3,
     title: 'Medical History',
-    path: `/medical-history':${'user-id'}`,
+    path: `/medical-history'/${'id'}`,
   },
   {
     id: 4,
     title: 'Doctor List',
     path: '/doctors',
+  },
+  {
+    id: 5,
+    title: 'Check Appointment',
+    path: `/appointment/${'id'}`,
   },
 ];
 
@@ -58,21 +68,16 @@ const doctorDataSet = [
   },
   {
     id: 2,
-    title: 'Reservations',
-    path: '/myreservations',
-  },
-  {
-    id: 3,
     title: 'Check Appointments',
     path: `appointments':${'doctor-id'}`,
   },
   {
-    id: 4,
+    id: 3,
     title: 'Appointments List',
     path: '/appointments-list',
   },
   {
-    id: 5,
+    id: 4,
     title: 'Doctor List',
     path: '/doctors',
   },
