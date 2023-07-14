@@ -13,7 +13,7 @@ const AppointmentList = () => {
   return (
     <div className="List-container">
       <Sidebar />
-      <div className="search">
+      <div className="table">
         <h1>Appointment List</h1>
         <table>
           <tr>

@@ -33,9 +33,9 @@ const MedicalHistory = () => {
     setName(keyword);
   };
   return (
-    <div style={{ display: "flex" }}>
+    <div className="medicalHistoryContainer">
       <Sidebar />
-      <div style={{ width: "100%" }}>
+      <div className="innerContainer">
         <div className="search-list">
           <input
             type="text"
@@ -45,8 +45,8 @@ const MedicalHistory = () => {
           />
           <SearchIcon />
         </div>
-        <div>
-          Medical History
+        <div className="table">
+         <h1 style={{textAlign: 'center'}}> Medical History</h1>
           <table className="medical-history-table">
             <tr>
               <th>Patient ID</th>

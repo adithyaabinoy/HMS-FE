@@ -1,24 +1,56 @@
 .medical-history-info {
-    display: flex;
-    gap: 10px;
-    }
-    
-    
-    .medical-history-table {
-    width: 75vw;
-    overflow-y: scroll;
-    text-align: center;
-    }
-    
-    
-    .medical-history-table tbody {
-    overflow-y: scroll;
-    height: 30vh;
-    }
-    
-    
-    .test-data {
-    display: flex;
-    }
-    
-    
+  display: flex;
+  gap: 10px;
+}
+
+.medical-history-table {
+  text-align: center;
+}
+
+.medical-history-table tbody {
+ 
+  height: 30vh;
+}
+
+.test-data {
+  display: flex;
+}
+
+.table {
+    overflow: auto;
+    height: 70vh;
+}
+th {
+    position: sticky;
+}
+
+.medicalHistoryContainer {
+  display: flex;
+}
+
+.innerContainer {
+  width: 90%;
+  padding: 10px 20px;
+}
+
+.search h1 {
+  text-align: center;
+}
+.search-list {
+  display: flex;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.search-list input {
+  outline: none;
+  border: none;
+  width: 100%;
+  font-size: 1.3rem;
+  padding: 12px;
+}
+
+.search-list .MuiSvgIcon-root {
+  font-size: 3rem;
+  color: rgb(68, 68, 68);
+}
