@@ -11,6 +11,7 @@ const AddDoctor = () => {
   const [description, setDescription] = useState("");
   const [specializations, setSpecializations] = useState("");
   const [image, setImage] = useState("");
+  const [consultationFees, setFees] = useState("")
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,6 +23,7 @@ const AddDoctor = () => {
     formData.append("name", name);
     formData.append("description", description);
     formData.append("specializations", specializations);
+    formData.append("consultationFees", consultationFees)
     dispatch(addingDoctor(formData));
     navigate("/");
     toast.success("Added Doctor");
@@ -36,6 +38,13 @@ const AddDoctor = () => {
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="addDoctorInput"
+        />
+        <input
+          placeholder="Consultation fees"
+          type="number"
+          value={consultationFees}
+          onChange={(e) => setFees(e.target.value)}
           className="addDoctorInput"
         />
         <input

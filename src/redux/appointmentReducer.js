@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetch3, fetch4 } from "../helpers/fetch";
+import { fetch4 } from "../helpers/fetch";
 
 const initialState = {
   loading: false,
@@ -7,9 +7,30 @@ const initialState = {
   appointmentList: "",
   doctorName: {},
   addAppointment: "",
-  patientAppointmentHistory: ""
+  patientAppointmentHistory: "",
+  doctorAppointmentHistory: ''
 };
 
+// doctors appointment history
+export const doctorAppointments = createAsyncThunk(
+  "doctorAppointments",
+  async () => {
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+    const response = await fetch(
+      "https://hms-be-7svd.onrender.com/api/v1/appointment/doctor/123pqr",
+      requestOptions
+    ).then((response) => response.json());
+    return response;
+  }
+);
+
+
+// patients appointment
 export const patientAppointments = createAsyncThunk(
   "patientAppointments",
   async () => {
@@ -113,6 +134,17 @@ const appointmentReducer = createSlice({
       state.patientAppointmentHistory = action.payload;
     },
     [patientAppointments.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [doctorAppointments.pending]: (state) => {
+      state.loading = true;
+    },
+    [doctorAppointments.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.doctorAppointmentHistory = action.payload;
+    },
+    [doctorAppointments.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },

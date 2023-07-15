@@ -36,6 +36,7 @@ function Doctors() {
                 key={i}
                 description={e.description}
                 onClick={bookDoctor}
+                price={['Consultation-Fees:-',e.consultationFees,'rs']}
               />
             );
           })
