@@ -6,13 +6,14 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from "./pages/Profile";
-import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
 import Report from "./pages/Report";
 import Doctors from "./pages/Doctors";
 import Contacts from "./pages/Contacts";
 import Appointments from "./pages/Appointments";
 import AppointmentList from "./pages/AppointmentList";
+import DoctorAppoinment from "./pages/DoctorAppoinment";
+
 import {
   fetchAppointmentList,
   getDoctorNames,
@@ -24,6 +25,9 @@ import { getReportList } from "./redux/reportReducer";
 import AddDoctor from "./pages/AddDoctor";
 import MedicalHistory from "./pages/MedicalHistory";
 import { getProfile } from "./redux/profileReducers";
+import UserAppointment from "./pages/UserAppointment";
+import UserMedicalHistory from "./pages/UserMedicalHistory";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +57,9 @@ function App() {
           <Route path="/appointments-list" element={<AppointmentList />} />
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/medical-history" element={<MedicalHistory />} />
+          <Route path="/doc-appoinmentlist" element={<DoctorAppoinment />} />
+          <Route path="/user-appointmentlist" element={<UserAppointment/> }/>
+          <Route path="/test" element={<UserMedicalHistory />} />
         </Routes>
         {/* <Footer /> */}
       </BrowserRouter>

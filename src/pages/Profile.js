@@ -4,7 +4,7 @@ import CustomButton from "../components/CustomButtons";
 import Sidebar from "../components/Sidebar";
 import "../styles/Profile.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getProfile, updateProfile } from "../redux/profileReducers";
+import { updateProfile } from "../redux/profileReducers";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 function Profile() {
