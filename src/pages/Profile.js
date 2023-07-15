@@ -23,7 +23,6 @@ function Profile() {
     { value: "Female", text: "Female" },
   ];
   const profileData = useSelector((state) => state.profile.profile);
-  console.log(profileData);
   const [gender, setSelected] = useState(options[0].value);
 
   const dispatch = useDispatch();

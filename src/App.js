@@ -12,7 +12,7 @@ import Doctors from "./pages/Doctors";
 import Contacts from "./pages/Contacts";
 import Appointments from "./pages/Appointments";
 import AppointmentList from "./pages/AppointmentList";
-import DoctorAppoinment from "./pages/DoctorAppoinment";
+import DoctorAppointment from "./pages/DoctorAppointment";
 
 import {
   fetchAppointmentList,
@@ -58,8 +58,8 @@ function App() {
           <Route path="/appointments-list" element={<AppointmentList />} />
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/medical-history" element={<MedicalHistory />} />
-          <Route path="/doc-appoinmentlist" element={<DoctorAppoinment />} />
-          <Route path="/user-appointmentlist" element={<UserAppointment/> }/>
+          <Route path="/doc-appointmentList" element={<DoctorAppointment />} />
+          <Route path="/user-appointmentList" element={<UserAppointment/> }/>
           <Route path="/test" element={<UserMedicalHistory />} />
           <Route path="/test2" element={<PatientAppointmentHistory />} />
         </Routes>

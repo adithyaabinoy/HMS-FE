@@ -1,12 +1,12 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
-import "../styles/DoctorAppoinment.css";
+import "../styles/DoctorAppointment.css";
 
-function DoctorAppoinment() {
+function DoctorAppointment() {
   return (
-    <div className="doctor_appoinments">
+    <div className="doctor_appointments">
       <Sidebar />
-      <div className="appoinments">
+      <div className="appointments">
         <h1>Appointments</h1>
         <table>
           <tr>
@@ -23,4 +23,4 @@ function DoctorAppoinment() {
   );
 }
 
-export default DoctorAppoinment;
+export default DoctorAppointment;
