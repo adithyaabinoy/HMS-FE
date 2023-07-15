@@ -23,6 +23,7 @@ import { fetchDoctorsList } from "./redux/doctorReducer";
 import { getReportList } from "./redux/reportReducer";
 import AddDoctor from "./pages/AddDoctor";
 import MedicalHistory from "./pages/MedicalHistory";
+import { getProfile } from "./redux/profileReducers";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
     dispatch(fetchDoctorsList());
     dispatch(fetchAppointmentList());
     dispatch(getReportList());
+    dispatch(getProfile());
   });
   return (
     <div className="App">

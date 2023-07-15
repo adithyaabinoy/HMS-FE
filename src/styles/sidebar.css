@@ -1,9 +1,9 @@
 .sidebar-container {
-  width: 22%;
-  height: 75vh;
-  border: 2px solid #caf0f8;
+  width: 20%;
+  height: 90vh;
   display: flex;
   flex-direction: column;
+  background-color: #caf0f8;
 }
 
 .logout-btn {

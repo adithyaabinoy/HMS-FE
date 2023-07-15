@@ -3,7 +3,7 @@ import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButtons";
 import Sidebar from "../components/Sidebar";
 import "../styles/Profile.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getProfile, updateProfile } from "../redux/profileReducers";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -22,6 +22,8 @@ function Profile() {
     { value: "Male", text: "Male" },
     { value: "Female", text: "Female" },
   ];
+  const profileData = useSelector((state) => state.profile.profile);
+  console.log(profileData);
   const [gender, setSelected] = useState(options[0].value);
 
   const dispatch = useDispatch();
@@ -37,8 +39,8 @@ function Profile() {
     setImage(e.profilePhoto.data.data);
   };
   useEffect(() => {
-    dispatch(getProfile()).then((data) => userData(data.payload));
-  }, [dispatch]);
+    userData(profileData);
+  }, [profileData]);
 
   const updateProfileInfo = (e) => {
     const formData = new FormData();
@@ -68,7 +70,7 @@ function Profile() {
   });
 
   const image = window.URL.createObjectURL(blob);
-  localStorage.setItem('profilePhoto', image)
+  localStorage.setItem("profilePhoto", image);
   return (
     <>
       <div className="profileContainer">
