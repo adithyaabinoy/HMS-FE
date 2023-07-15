@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import "../styles/DoctorAppointment.css";
-
+import { useDispatch } from "react-redux";
+import { doctorAppointments } from "../redux/appointmentReducer";
 function DoctorAppointment() {
+  const [list, setList] = useState('')
+const dispatch = useDispatch()
+  useEffect(()=>{
+  dispatch(doctorAppointments()).then((data)=> setList(data.payload))
+  },[])
   return (
     <div className="doctor_appointments">
       <Sidebar />
@@ -15,7 +21,14 @@ function DoctorAppointment() {
             <th>Date</th>
           </tr>
           <tbody>
-            <tr></tr>
+            {list && list.length > 0 ? list.map((data)=>{
+              return <tr>
+                <td>{data.username}</td>
+                <td>{data.time}</td>
+                <td>{data.date}</td>
+              </tr>
+            }): <h1>no data</h1>}
+            
           </tbody>
         </table>
       </div>

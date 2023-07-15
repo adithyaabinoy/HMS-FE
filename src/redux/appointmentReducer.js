@@ -22,7 +22,7 @@ export const doctorAppointments = createAsyncThunk(
       },
     };
     const response = await fetch(
-      "https://hms-be-7svd.onrender.com/api/v1/appointment/doctor/123pqr",
+      "https://hms-be-7svd.onrender.com/api/v1/appointments/doctor/123pqr",
       requestOptions
     ).then((response) => response.json());
     return response;
