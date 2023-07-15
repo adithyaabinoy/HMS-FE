@@ -19,8 +19,8 @@ const UserMedicalHistory = () => {
 
   console.log(list);
   return (
-    <>
-      <Sidebar />
+    <div className="user_container">
+    <Sidebar />
       <div className="table">
         <h1>Medical History</h1>
         <table className="test-report-table">
@@ -52,7 +52,7 @@ const UserMedicalHistory = () => {
           )}
         </table>
       </div>
-    </>
+    </div>
   );
 };
 

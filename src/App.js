@@ -27,6 +27,7 @@ import MedicalHistory from "./pages/MedicalHistory";
 import { getProfile } from "./redux/profileReducers";
 import UserAppointment from "./pages/UserAppointment";
 import UserMedicalHistory from "./pages/UserMedicalHistory";
+import PatientAppointmentHistory from "./pages/PatientAppointmentHistory";
 
 
 function App() {
@@ -60,8 +61,8 @@ function App() {
           <Route path="/doc-appoinmentlist" element={<DoctorAppoinment />} />
           <Route path="/user-appointmentlist" element={<UserAppointment/> }/>
           <Route path="/test" element={<UserMedicalHistory />} />
+          <Route path="/test2" element={<PatientAppointmentHistory />} />
         </Routes>
-        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );
