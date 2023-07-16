@@ -1,3 +1,4 @@
+const patientId = localStorage.getItem('patientId');
 const adminDataSet = [
   {
     id: 1,
@@ -46,7 +47,7 @@ const userDataSet = [
   {
     id: 3,
     title: 'Medical History',
-    path: `/medical-history'/${'id'}`,
+    path: `/medical-history/${patientId}`,
   },
   {
     id: 4,
@@ -56,7 +57,7 @@ const userDataSet = [
   {
     id: 5,
     title: 'Check Appointment',
-    path: `/appointment/${'id'}`,
+    path: `/appointment/${patientId}`,
   },
 ];
 
@@ -69,7 +70,7 @@ const doctorDataSet = [
   {
     id: 2,
     title: 'Check Appointments',
-    path: `appointments':${'doctor-id'}`,
+    path: `appointments':${patientId}`,
   },
   {
     id: 3,

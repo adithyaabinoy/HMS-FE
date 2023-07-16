@@ -13,6 +13,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const [patientId, setPatientId] = useState("");
 
   // Redux state
   const { loading } = useSelector((state) => state.user);
@@ -25,6 +26,7 @@ const Signup = () => {
       email,
       password,
       role,
+      patientId
     };
     dispatch(signupUser(userCredentials)).then((data) => {
       if (data.payload.message === "User created successfully") {
@@ -32,6 +34,7 @@ const Signup = () => {
         setEmail("");
         setRole("");
         setPassword("");
+        setPatientId("");
         navigate("/login");
         toast.success("Successfully created new user");
       }
@@ -62,13 +65,19 @@ const Signup = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <CustomInput
+            type="text"
+            placeholder="Id"
+            value={patientId}
+            onChange={(e) => setPatientId(e.target.value)}
+          />
           <div>
             <select
               className="select"
               onChange={(e) => setRole(e.target.value)}
             >
               <option value=''>---Choose Options---</option>
-              <option value="Docter">Docter</option>
+              <option value="Doctor">Doctor</option>
               <option value="User">User</option>
             </select>
           </div>

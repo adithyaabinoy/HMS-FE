@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetch4 } from "../helpers/fetch";
 
+const patientId = localStorage.getItem("patientId");
 const initialState = {
   loading: false,
   error: "",
@@ -22,7 +23,7 @@ export const doctorAppointments = createAsyncThunk(
       },
     };
     const response = await fetch(
-      "https://hms-be-7svd.onrender.com/api/v1/appointments/doctor/123pqr",
+      `https://hms-be-7svd.onrender.com/api/v1/appointments/doctor/${patientId}`,
       requestOptions
     ).then((response) => response.json());
     return response;
@@ -41,7 +42,7 @@ export const patientAppointments = createAsyncThunk(
       },
     };
     const response = await fetch(
-      "https://hms-be-7svd.onrender.com/api/v1/appointment/patient/2345rty",
+      `https://hms-be-7svd.onrender.com/api/v1/appointment/patient/${patientId}`,
       requestOptions
     ).then((response) => response.json());
     return response;

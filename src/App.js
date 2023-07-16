@@ -31,6 +31,7 @@ import PatientAppointmentHistory from "./pages/PatientAppointmentHistory";
 
 
 function App() {
+  const patientId = localStorage.getItem("patientId");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDoctorNames());
@@ -58,10 +59,10 @@ function App() {
           <Route path="/appointments-list" element={<AppointmentList />} />
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/medical-history" element={<MedicalHistory />} />
-          <Route path="/doc-appointmentList" element={<DoctorAppointment />} />
+          <Route path="/appointment/:patientId" element={<DoctorAppointment />} />
           <Route path="/user-appointmentList" element={<UserAppointment/> }/>
-          <Route path="/test" element={<UserMedicalHistory />} />
-          <Route path="/test2" element={<PatientAppointmentHistory />} />
+          <Route path="/medical-history/:patientId" element={<UserMedicalHistory />} />
+          <Route path="/appointment/:patientId" element={<PatientAppointmentHistory />} />
         </Routes>
       </BrowserRouter>
     </div>

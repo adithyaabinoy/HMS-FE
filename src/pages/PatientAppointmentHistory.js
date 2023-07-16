@@ -15,7 +15,21 @@ const PatientAppointmentHistory = () => {
   return (
     <div className="PatientAppointmentHistory_container">
       <Sidebar />
-      <div></div>
+      <div className="appointment_history">
+        <h1>Appointment History</h1>
+        <table className="appointment_history">
+            <tr>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            </tr>
+            <tbody>
+              <tr>
+                <td></td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
     </div>
   );
 };
