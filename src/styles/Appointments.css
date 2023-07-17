@@ -38,3 +38,8 @@
   outline: none;
   color: #fff;
 }
+
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+  width: 350px;
+  font-size: 1.3rem;
+}

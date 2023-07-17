@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { patientAppointments } from "../redux/appointmentReducer";
 
 const PatientAppointmentHistory = () => {
@@ -10,7 +10,7 @@ const PatientAppointmentHistory = () => {
     dispatch(patientAppointments()).then((data) => {
       setList(data.payload);
     });
-  }, []);
+  }, [dispatch]);
   console.log(list)
   return (
     <div className="PatientAppointmentHistory_container">

@@ -3,14 +3,13 @@ import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButtons";
 import Sidebar from "../components/Sidebar";
 import "../styles/Profile.css";
-import { useDispatch, useSelector } from "react-redux";
-import { updateProfile } from "../redux/profileReducers";
+import { useDispatch } from "react-redux";
+import { getProfile, updateProfile } from "../redux/profileReducers";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 function Profile() {
   //image uploading
   const [profilePhoto, setImage] = useState("");
-
   const [phone, setPhoneNumber] = useState("");
   const [age, setAge] = useState("");
   const [username, setUsername] = useState("");
@@ -22,7 +21,6 @@ function Profile() {
     { value: "Male", text: "Male" },
     { value: "Female", text: "Female" },
   ];
-  const profileData = useSelector((state) => state.profile.profile);
   const [gender, setSelected] = useState(options[0].value);
 
   const dispatch = useDispatch();
@@ -38,8 +36,8 @@ function Profile() {
     setImage(e.profilePhoto.data.data);
   };
   useEffect(() => {
-    userData(profileData);
-  }, [profileData]);
+    dispatch(getProfile()).then((data) => userData(data.payload));
+  }, [dispatch]);
 
   const updateProfileInfo = (e) => {
     const formData = new FormData();
@@ -54,22 +52,19 @@ function Profile() {
     formData.append("address", address);
     formData.append("age", age);
     dispatch(updateProfile(formData)).then((response) => response);
-
     toast.success("profile updated successfully");
     navigate("/");
   };
-
   const token = localStorage.getItem("token");
   const handleChange = (event) => {
     setSelected(event.target.value);
   };
-
   const blob = new Blob([Int8Array.from(profilePhoto)], {
     type: profilePhoto.contentType,
   });
 
   const image = window.URL.createObjectURL(blob);
-  localStorage.setItem("profilePhoto", image);
+  localStorage.setItem('profilePhoto', image)
   return (
     <>
       <div className="profileContainer">
@@ -101,7 +96,6 @@ function Profile() {
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
               />
-
               <CustomInput
                 placeholder="Phone Number"
                 type="text"
@@ -149,5 +143,4 @@ function Profile() {
     </>
   );
 }
-
 export default Profile;

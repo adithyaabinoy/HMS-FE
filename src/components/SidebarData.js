@@ -70,15 +70,10 @@ const doctorDataSet = [
   {
     id: 2,
     title: 'Check Appointments',
-    path: `appointments':${patientId}`,
+    path: `appointment/${patientId}`,
   },
   {
     id: 3,
-    title: 'Appointments List',
-    path: '/appointments-list',
-  },
-  {
-    id: 4,
     title: 'Doctor List',
     path: '/doctors',
   },
@@ -87,7 +82,7 @@ const doctorDataSet = [
 const SidebarData = (role) => {
   if (role === 'Admin') {
     return adminDataSet;
-  } else if (role === 'Docter') {
+  } else if (role === 'Doctor') {
     return doctorDataSet;
   }else return userDataSet
 }

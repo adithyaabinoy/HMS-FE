@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "../styles/Navigation.css";
 
 const Navigation = () => {
-  const token = localStorage.getItem("token");
   return (
     <div className="navigation-container">
       <div className="navigationInnerContainer">
@@ -18,7 +17,6 @@ const Navigation = () => {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/contacts">Contacts</Link>
-          {token ? <Link>Login</Link> : <Link to="/login">Login</Link>}
         </div>
       </div>
     </div>

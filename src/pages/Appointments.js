@@ -16,13 +16,10 @@ import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 function Appointments() {
   // const [date, setSelectedDate] = useState(null);
   const [doctorName, setDoctorName] = useState("");
-  const name = useSelector((state) => state.doctorName);
-
-  console.log(name);
-
   // const [selected, setSelected] = useState("");
   const [date, setSelectedDate] = useState(null);
   const { doctorList } = useSelector((state) => state.doctorList);
+  console.log(doctorList);
   const doctorArray = [...doctorList];
   const [value, setValue] = useState(dayjs('2022-04-17T15:30'));
   const nameValue = doctorArray.map((data)=> data.name);
@@ -32,6 +29,7 @@ function Appointments() {
   const data = {
     date,
     doctorName,
+    
   };
   const bookAppointment = () => {
     dispatch(createAppointments(data));
@@ -56,6 +54,7 @@ function Appointments() {
               </option>
             )): <h1 style={{textAlign: 'center'}}>Loading....</h1>}
         </select>
+        <input type="text" onChange={(e)=> e.target.value}/>
         <DatePicker
           className="datePicker"
           selected={date}

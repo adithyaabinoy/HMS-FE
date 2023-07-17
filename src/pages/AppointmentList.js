@@ -39,7 +39,7 @@ const AppointmentList = () => {
               );
             })
           ) : (
-            <p style={{ textAlign: "center" }}>Loading......</p>
+            <p style={{ textAlign: "center" }}>No Data</p>
           )}
         </table>
       </div>

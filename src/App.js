@@ -29,16 +29,15 @@ import UserAppointment from "./pages/UserAppointment";
 import UserMedicalHistory from "./pages/UserMedicalHistory";
 import PatientAppointmentHistory from "./pages/PatientAppointmentHistory";
 
-
 function App() {
-  const patientId = localStorage.getItem("patientId");
+  const role = localStorage.getItem("role");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDoctorNames());
     dispatch(fetchDoctorsList());
     dispatch(fetchAppointmentList());
     dispatch(getReportList());
-    dispatch(getProfile());
+    //dispatch(getProfile());
   });
   return (
     <div className="App">
@@ -59,10 +58,22 @@ function App() {
           <Route path="/appointments-list" element={<AppointmentList />} />
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/medical-history" element={<MedicalHistory />} />
-          <Route path="/appointment/:patientId" element={<DoctorAppointment />} />
-          <Route path="/user-appointmentList" element={<UserAppointment/> }/>
-          <Route path="/medical-history/:patientId" element={<UserMedicalHistory />} />
-          <Route path="/appointment/:patientId" element={<PatientAppointmentHistory />} />
+          <Route path="/user-appointmentList" element={<UserAppointment />} />
+          <Route
+            path="/medical-history/:patientId"
+            element={<UserMedicalHistory />}
+          />
+          {role === "Doctor" ? (
+            <Route
+              path="/appointment/:patientId"
+              element={<DoctorAppointment />}
+            />
+          ) : (
+            <Route
+              path="/appointment/:patientId"
+              element={<PatientAppointmentHistory />}
+            />
+          )}
         </Routes>
       </BrowserRouter>
     </div>

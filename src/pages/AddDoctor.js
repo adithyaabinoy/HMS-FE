@@ -9,7 +9,8 @@ import '../styles/AddDoctor.css'
 const AddDoctor = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [specializations, setSpecializations] = useState("");
+  const [doctorId, setDoctorId] = useState("");
+  const [specialization, setSpecializations] = useState("");
   const [image, setImage] = useState("");
   const [consultationFees, setFees] = useState("")
   const dispatch = useDispatch();
@@ -22,8 +23,9 @@ const AddDoctor = () => {
     formData.append("doctorPhoto", fileInput.files[0]);
     formData.append("name", name);
     formData.append("description", description);
-    formData.append("specializations", specializations);
+    formData.append("specialization", specialization);
     formData.append("consultationFees", consultationFees)
+    formData.append("doctorId", doctorId)
     dispatch(addingDoctor(formData));
     navigate("/");
     toast.success("Added Doctor");
@@ -48,9 +50,16 @@ const AddDoctor = () => {
           className="addDoctorInput"
         />
         <input
+          placeholder="Doctor ID"
+          type="text"
+          value={doctorId}
+          onChange={(e) => setDoctorId(e.target.value)}
+          className="addDoctorInput"
+        />
+        <input
           placeholder="Specialization"
           type="text"
-          value={specializations}
+          value={specialization}
           onChange={(e) => setSpecializations(e.target.value)}
           className="addDoctorInput"
         />

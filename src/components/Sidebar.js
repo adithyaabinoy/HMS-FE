@@ -5,8 +5,8 @@ import { toast } from "react-toastify";
 import SidebarData from "./SidebarData";
 
 const Sidebar = () => {
-const role = localStorage.getItem("role");
-const image = localStorage.getItem("profilePhoto");
+  const role = localStorage.getItem("role");
+  const image = localStorage.getItem("profilePhoto");
   const navigate = useNavigate();
   const handleLogout = () => {
     if (localStorage.getItem("token")) {
@@ -19,17 +19,26 @@ const image = localStorage.getItem("profilePhoto");
   };
   return (
     <div className="sidebar-container">
-      <img
-        src={image}
-        alt="profile"
-      />
-      {SidebarData? SidebarData(role).map((data)=>{
-        return <Link to={data.path} key={data.id}>{data.title}</Link>
-      }): <p style={{textAlign: 'center'}}>Login Again</p>}
+      <img src={image} alt="profile" />
+      {SidebarData ? (
+        SidebarData(role).map((data) => {
+          return (
+            <Link to={data.path} key={data.id}>
+              {data.title}
+            </Link>
+          );
+        })
+      ) : (
+        <p style={{ textAlign: "center" }}>Login Again</p>
+      )}
 
-      <button type="submit" className="logout-btn" onClick={handleLogout}>
-        Logout
-      </button>
+      {role ? (
+        <button type="submit" className="logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+      ) : (
+        <Link to="/login">Login</Link>
+      )}
     </div>
   );
 };
