@@ -17,3 +17,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+input {
+  background-color: #edf2fb;
+  font-size: 1.2rem;
+  }
+  

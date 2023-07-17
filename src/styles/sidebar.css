@@ -13,13 +13,12 @@
   font-size: 1.3rem;
   outline: none;
   position: absolute;
-  /* margin: 40% 15%; */
   border: none;
-  bottom: 0;
-  /* left : 80px */
-  margin: 0 30px;
+  bottom: 5rem;
+  margin: 0 4rem;
   width: 170px;
-}
+  }
+  
 
 .logout-btn:hover {
   padding-right: 14px;
