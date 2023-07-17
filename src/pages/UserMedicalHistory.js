@@ -3,13 +3,10 @@ import "../styles/userMedicalHistory.css";
 import { useDispatch } from "react-redux";
 import { getPatientMedicalHistory } from "../redux/reportReducer";
 import Sidebar from "../components/Sidebar";
-import { useParams } from "react-router-dom";
 
 const UserMedicalHistory = () => {
   const [list, setList] = useState("");
   const dispatch = useDispatch();
-  let { userId } = useParams();
-  console.log(userId);
 
   useEffect(() => {
     dispatch(getPatientMedicalHistory()).then((response) =>
@@ -27,6 +24,7 @@ const UserMedicalHistory = () => {
           <tr>
             <th>Test Name</th>
             <th>Test Value</th>
+            <th>Unit</th>
             <th>Test Reference Value</th>
           </tr>
 
@@ -40,6 +38,7 @@ const UserMedicalHistory = () => {
                       <tr key={i}>
                         <td>{data.testName}</td>
                         <td>{data.value}</td>
+                        <td>{data.unit}</td>
                         <td>{data.standardValue}</td>
                       </tr>
                     );

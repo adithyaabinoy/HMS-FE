@@ -12,23 +12,33 @@ const PatientAppointmentHistory = () => {
       setList(data.payload);
     });
   }, [dispatch]);
-  console.log(list)
   return (
     <div className="PatientAppointmentHistory_container">
       <Sidebar />
       <div className="appointment_history">
         <h1>Appointment History</h1>
         <table className="appointment_history">
-            <tr>
+          <tr>
             <th>Doctor</th>
             <th>Date</th>
             <th>Time</th>
-            </tr>
-            <tbody>
-              <tr>
-                <td></td>
-              </tr>
-            </tbody>
+          </tr>
+
+            {list && list.length > 0 ? (
+              list.map((data, i) => {
+                console.log(data)
+                return (
+                  <tr key={i}>
+                    <td>{data.doctorName}</td>
+                    <td>{data.date}</td>
+                    <td>{data.time}</td>
+                  </tr>
+                );
+              })
+            ) : (
+              <p>No data</p>
+            )}
+
         </table>
       </div>
     </div>

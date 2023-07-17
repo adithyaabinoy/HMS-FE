@@ -8,6 +8,7 @@ const initialState = {
   reportList: "",
   patientMedicalHistory: "",
 };
+const patientId = localStorage.getItem("patientId")
 //get action for individual patient history
 export const getPatientMedicalHistory = createAsyncThunk(
   "patientMedicalHistory",
@@ -19,7 +20,7 @@ export const getPatientMedicalHistory = createAsyncThunk(
       },
     };
     const response = await fetch(
-      "https://hms-be-7svd.onrender.com/api/v1/patientreport/2345rty",
+      `https://hms-be-7svd.onrender.com/api/v1/patientreport/${patientId}`,
       requestOptions
     ).then((response) => response.json());
     return response;

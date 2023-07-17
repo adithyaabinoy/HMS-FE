@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../styles/Appointments.css";
@@ -14,7 +14,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 
 function Appointments() {
-  // const [date, setSelectedDate] = useState(null);
+ const [list, setList] = useState('')
   const [doctorName, setDoctorName] = useState("");
   // const [selected, setSelected] = useState("");
   const [date, setSelectedDate] = useState(null);
@@ -28,9 +28,13 @@ function Appointments() {
   const dispatch = useDispatch();
   const data = {
     date,
-    doctorName,
-    
+    doctorName, 
   };
+
+  useEffect(()=> {
+  setList(doctorList)
+  },[])
+  console.log(list)
   const bookAppointment = () => {
     dispatch(createAppointments(data));
     toast.success("Appointment has been booked !");
@@ -54,7 +58,14 @@ function Appointments() {
               </option>
             )): <h1 style={{textAlign: 'center'}}>Loading....</h1>}
         </select>
-        <input type="text" onChange={(e)=> e.target.value}/>
+        <input type="text" onChange={(e)=> e.target.value} className="input-appointment"/>
+
+        {list && list.length > 0 ? list.map((data,i)=> {
+          return <div key={i}>
+            <p>{data.name}</p>
+            <p>{data.consultationFees}</p>
+          </div>
+        }): <p>wait for doc data</p>}
         <DatePicker
           className="datePicker"
           selected={date}
