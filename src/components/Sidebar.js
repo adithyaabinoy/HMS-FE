@@ -19,7 +19,15 @@ const Sidebar = () => {
   };
   return (
     <div className="sidebar-container">
-      <img src={image} alt="profile" />
+      {image ? (
+        <img src={image} alt="profile" />
+      ) : (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png"
+          alt="profile"
+        />
+      )}
+
       {SidebarData ? (
         SidebarData(role).map((data) => {
           return (
