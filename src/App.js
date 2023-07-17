@@ -24,8 +24,6 @@ import { fetchDoctorsList } from "./redux/doctorReducer";
 import { getReportList } from "./redux/reportReducer";
 import AddDoctor from "./pages/AddDoctor";
 import MedicalHistory from "./pages/MedicalHistory";
-import { getProfile } from "./redux/profileReducers";
-import UserAppointment from "./pages/UserAppointment";
 import UserMedicalHistory from "./pages/UserMedicalHistory";
 import PatientAppointmentHistory from "./pages/PatientAppointmentHistory";
 
@@ -37,7 +35,6 @@ function App() {
     dispatch(fetchDoctorsList());
     dispatch(fetchAppointmentList());
     dispatch(getReportList());
-    //dispatch(getProfile());
   });
   return (
     <div className="App">
@@ -58,7 +55,6 @@ function App() {
           <Route path="/appointments-list" element={<AppointmentList />} />
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/medical-history" element={<MedicalHistory />} />
-          <Route path="/user-appointmentList" element={<UserAppointment />} />
           <Route
             path="/medical-history/:patientId"
             element={<UserMedicalHistory />}

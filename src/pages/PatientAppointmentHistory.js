@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { useDispatch } from "react-redux";
 import { patientAppointments } from "../redux/appointmentReducer";
+import "../styles/UserAppointment.css";
 
 const PatientAppointmentHistory = () => {
   const [list, setList] = useState("");
