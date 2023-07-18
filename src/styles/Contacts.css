@@ -10,7 +10,7 @@ h1 {
 
 form {
   display: block;
-  background-color: #fff;
+  background-color: #edf2fb;
   box-shadow: 1px 1px 3px 2px #ddd;
   padding: 20px 40px;
   width: 70%;
@@ -24,8 +24,8 @@ textarea {
   width: 100%;
   margin: 10px auto;
   padding: 8px;
-  background-color: #faf9f6;
-  border: 2px solid #000;
+  background-color:  #edf2fb;
+  border: 1px solid #000;
   outline: none;
 }
 
