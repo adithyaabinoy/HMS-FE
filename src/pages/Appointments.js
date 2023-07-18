@@ -79,6 +79,7 @@ function Appointments() {
         />
 
         <input
+        className="input-appointment"
           type="time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
