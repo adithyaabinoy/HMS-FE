@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createAppointments } from "../redux/appointmentReducer";
 
-
 function Appointments() {
   const [list, setList] = useState("");
   const [doctorName, setDoctorName] = useState("");
@@ -16,7 +15,7 @@ function Appointments() {
   console.log(doctorList);
   const doctorArray = [...doctorList];
   const [time, setTime] = useState("");
-  const [consultationFees, setConsultationFees] = useState()
+  const [consultationFees, setConsultationFees] = useState();
   const nameValue = doctorArray.map((data) => data.name);
   const [selected, setSelected] = useState(nameValue[0]?.value);
   const Navigate = useNavigate();
@@ -25,7 +24,7 @@ function Appointments() {
     date,
     doctorName,
     time,
-    consultationFees
+    consultationFees,
   };
 
   useEffect(() => {
@@ -37,20 +36,19 @@ function Appointments() {
     toast.success("Appointment has been booked !");
     Navigate("/");
   };
- var consultationFee
+  var consultationFee;
   const handleChange = (event) => {
     setSelected(event.target.value);
     setDoctorName(event.target.value);
-      doctorArray.forEach((data) => {
-    if(event.target.value == data.name) {
-      console.log(data.consultationFees)
-      consultationFee =  data.consultationFees
-      setConsultationFees(consultationFee)
-    } 
-  });
-  console.log(consultationFee)
+    doctorArray.forEach((data) => {
+      if (event.target.value == data.name) {
+        console.log(data.consultationFees);
+        consultationFee = data.consultationFees;
+        setConsultationFees(consultationFee);
+      }
+    });
+    console.log(consultationFee);
   };
- 
 
   return (
     <div className="appointmentContainer">
@@ -71,15 +69,17 @@ function Appointments() {
           type="text"
           value={consultationFees}
           onChange={(e) => e.target.value}
-          className="input-appointment"
+         
         />
         <input
+          className="input-appointment"
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
 
         <input
+         
           type="time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
