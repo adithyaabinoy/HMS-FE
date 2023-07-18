@@ -32,14 +32,17 @@
   font-size: 1.5rem;
   width: 325px;
   font-weight: 400;
-  height: 30px;
   background-color: #4361ee;
   border: none;
   outline: none;
+  padding: 10px;
   color: #fff;
 }
 
-.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
-  width: 350px;
+.input-appointment {
+  padding: 10px;
   font-size: 1.3rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #000;
 }
