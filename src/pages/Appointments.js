@@ -66,10 +66,10 @@ function Appointments() {
           )}
         </select>
         <input
+        className="input-appointment"
           type="text"
           value={consultationFees}
           onChange={(e) => e.target.value}
-         
         />
         <input
           className="input-appointment"
@@ -79,7 +79,6 @@ function Appointments() {
         />
 
         <input
-         
           type="time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
