@@ -9,14 +9,14 @@ import { useNavigate } from "react-router-dom";
 function Contacts() {
   const [state, handleSubmit] = useForm("xwkajypj");
   const navigate = useNavigate()
-  const submitting = () => {
-    toast.success('Loved Your response..See You Soon!!!')
+  if (state.succeeded) {
     navigate('/')
-  }
+    toast.success('Loved your response See you Soon!!!')
+}
   return (
     <div className="contacts">
       <Sidebar />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} action="https://formspree.io/f/xwkajypj" method="POST">
         <h1>
           CONTACT <span>US</span>
         </h1>
@@ -41,7 +41,6 @@ function Contacts() {
         <button
           type="submit"
           className="btn-submit"
-          onClick={submitting}
           disabled={state.submitting}
         >
           SEND
