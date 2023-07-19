@@ -35,12 +35,12 @@ const UserMedicalHistory = () => {
                   {data.testReportForm.map((data, i) => {
                     console.log(data);
                     return (
-                      <tr key={i}>
+                      <>
                         <td>{data.testName}</td>
                         <td>{data.value}</td>
                         <td>{data.unit}</td>
                         <td>{data.standardValue}</td>
-                      </tr>
+                      </>
                     );
                   })}
                 </tr>
