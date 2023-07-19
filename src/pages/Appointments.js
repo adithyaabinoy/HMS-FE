@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createAppointments } from "../redux/appointmentReducer";
+import GooglePayButton from "@google-pay/button-react";
 
 function Appointments() {
   const [list, setList] = useState("");
@@ -66,7 +67,7 @@ function Appointments() {
           )}
         </select>
         <input
-        className="input-appointment"
+          className="input-appointment"
           type="text"
           value={consultationFees}
           onChange={(e) => e.target.value}
@@ -79,12 +80,48 @@ function Appointments() {
         />
 
         <input
-        className="input-appointment"
+          className="input-appointment"
           type="time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
         />
-
+        <GooglePayButton
+          environment="TEST"
+          paymentRequest={{
+            apiVersion: 2,
+            apiVersionMinor: 0,
+            allowedPaymentMethods: [
+              {
+                type: "CARD",
+                parameters: {
+                  allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+                  allowedCardNetworks: ["MASTERCARD", "VISA"],
+                },
+                tokenizationSpecification: {
+                  type: "PAYMENT_GATEWAY",
+                  parameters: {
+                    gateway: "example",
+                    gatewayMerchantId: "exampleGatewayMerchantId",
+                  },
+                },
+              },
+            ],
+            merchantInfo: {
+              merchantId: "12345678901234567890",
+              merchantName: "Demo Merchant",
+            },
+            transactionInfo: {
+              totalPriceStatus: "FINAL",
+              totalPriceLabel: "Total",
+              totalPrice: "100.00",
+              currencyCode: "USD",
+              countryCode: "US",
+            },
+          }}
+          onLoadPaymentData={(paymentRequest) => {
+            console.log("load payment data", paymentRequest);
+          }}
+        />
         <button onClick={bookAppointment} className="btn-appointment">
           Book Appointment
         </button>

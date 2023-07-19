@@ -49,7 +49,7 @@ const Signup = () => {
         <form onSubmit={handleSignUpEvent}>
           <CustomInput
             type="text"
-            placeholder="Username"
+            placeholder="Full Name"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />

@@ -21,14 +21,12 @@ function Doctors() {
       toast.error("Only patient are allowed to access this");
     }
   };
-
   return (
     <div className="doctors__container">
       <Sidebar />
       <div className="doctors">
         {doctors && doctors.length > 0 ? (
           doctors.map((e, i) => {
-            console.log(e);
             return (
               <Card
                 name={e.name}
@@ -36,7 +34,7 @@ function Doctors() {
                 key={i}
                 description={e.description}
                 onClick={bookDoctor}
-                price={['Consultation-Fees:-',e.consultationFees,'rs']}
+                price={["Consultation-Fees:-", e.consultationFees, "rs"]}
               />
             );
           })

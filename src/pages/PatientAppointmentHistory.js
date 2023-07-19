@@ -26,7 +26,6 @@ const PatientAppointmentHistory = () => {
 
             {list && list.length > 0 ? (
               list.map((data, i) => {
-                console.log(data)
                 return (
                   <tr key={i}>
                     <td>{data.doctorName}</td>

@@ -27,14 +27,13 @@ const AppointmentList = () => {
             list.map((data, index) => {
               return (
                 <>
-                  <tbody>
-                    <tr>
-                      <td>{data.patientId}</td>
-                      <td>{data.username}</td>
-                      <td>{data.doctorName}</td>
-                      <td>{data.date}</td>
-                    </tr>
-                  </tbody>
+                  <tr key={index}>
+                    <td>{data.patientId}</td>
+                    <td>{data.username}</td>
+                    <td>{data.doctorName}</td>
+                    <td>{data.time}</td>
+                    <td>{data.date}</td>
+                  </tr>
                 </>
               );
             })
