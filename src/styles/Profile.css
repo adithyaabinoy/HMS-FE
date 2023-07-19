@@ -62,12 +62,12 @@
   font-size: 4rem;
   color: red;
   text-align: center;
-  background-image: url("../asset/img3.jpeg");
+  /* background-image: url("../asset/img3.jpeg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-size: 100%;
-  height: 68%;
+  height: 68%; */
   padding-top: 12%;
 }
 

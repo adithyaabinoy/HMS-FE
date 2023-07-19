@@ -51,10 +51,12 @@ function Appointments() {
     console.log(consultationFee);
   };
 
+  const token = localStorage.getItem('token');
+
   return (
     <div className="appointmentContainer">
       <Sidebar />
-      <div className="appointmentOptions">
+      {token ? <div className="appointmentOptions">
         <select value={selected} onChange={handleChange} className="select">
           {nameValue && nameValue.length > 0 ? (
             nameValue.map((option, i) => (
@@ -125,7 +127,8 @@ function Appointments() {
         <button onClick={bookAppointment} className="btn-appointment">
           Book Appointment
         </button>
-      </div>
+      </div>: <h1>For Booking You need to Login</h1>}
+      
     </div>
   );
 }
