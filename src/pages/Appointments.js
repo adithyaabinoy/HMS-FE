@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "react-datepicker/dist/react-datepicker.css";
 import "../styles/Appointments.css";
 import Sidebar from "../components/Sidebar";
 import { toast } from "react-toastify";
